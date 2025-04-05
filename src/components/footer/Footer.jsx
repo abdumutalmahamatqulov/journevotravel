@@ -1,17 +1,30 @@
 import { useSelector } from "react-redux";
-import React from "react";
+import React, { useState } from "react";
 import { translations } from "../../data";
+import Link from "antd/es/typography/Link";
 
 const Footer = () => {
     const county = ["Alsace", "Basque Country", "Bordeaux", "Burgundy", "Champagne", "Corsica", "French Alps", "French Riviera", "Loire Valley", "Lyon", "Monaco", "Normandy", "Paris", "Provence", "Southern France", "South West France"];
     const place = ["Family-Friendly", "Group Travel", "History & Culture", "Honeymoons & Romance", "Self-drive Tours", "Skiing & Adventure", "Wellness & Relaxation", "Wine & Food"];
     const career = ["Client Testimonials", "Meet Your Next Travel Designer", "FAQ", "For Agencies & Operators", "Careers"];
     const language = useSelector((state) => state?.language.language);
+    const [hovered, setHovered]=useState(false);
+    const linkStyle = {
+        color: 'white',
+        fontSize: '18px',
+        fontWeight: 'bold',
+        transition: 'color 0.3s ease',
+    };
+
+    const linkHoverStyle = {
+        ...linkStyle,
+        color: '#ffa500', // hover rangini belgilash
+    };
     return (
-        <footer className="bg-[#1F3653] text-white py-12 px-8">
-            <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4">
+        <footer className="bg-[#1F3653] text-white py-12 px-4 sm:px-6 lg:px-8">
+            <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[minmax(300px,2fr)_1fr_1fr_1fr] gap-10">
                 {/* Subscription Section */}
-                <div className="md:col-span-1 w-full max-w-xl">
+                <div className="md:mr-[80px]">
                     <h1 className="text-3xl font-bold mb-3 leading-tight">{translations[language]?.title || translations?.en?.title}</h1>
                     <p className="text-gray-300 mb-5 text-lg">{translations[language]?.des || translations?.en?.des}</p>
                     <div className="flex gap-2">
@@ -19,18 +32,16 @@ const Footer = () => {
                         <input type="text" placeholder="last name" className="p-2 rounded w-1/2 text-black text-xl bg-white" />
                     </div>
                     <input type="text" placeholder="email address" className="p-3 mt-3 w-full max-w-full rounded text-black text-xl bg-white" />
-                    <button className="bg-gray-400 text-white px-8 py-3 text-xl rounded mt-4 font-semibold">
+                    <button className="bg-neutral-400 hover:bg-neutral-500 text-white px-8 py-3 text-xl rounded mt-4 font-semibold transition-all duration-300">
                         Subscribe
                     </button>
                 </div>
-                {/* Subscription va Destinations orasidagi masofa */}
-                <div className="hidden md:block md:col-span-0 md:gap-12" style={{ width: '3rem' }}></div>
                 {/* Destinations */}
                 <div className="md:col-span-1">
                     <h3 className="font-bold text-2xl mb-4">Destinations</h3>
-                    <ul className="text-gray-300 text-lg">
+                    <ul className="text-gray-300 text-lg ">
                         {county?.map((item) => (
-                            <li key={item}><a href="">{item}</a></li>
+                            <li key={item}><a href="" className="hover:text-amber-700 transition-all duration-300">{item}</a></li>
                         ))}
                     </ul>
                 </div>
@@ -40,7 +51,7 @@ const Footer = () => {
                     <h3 className="font-bold text-2xl mb-4">Types of Trips</h3>
                     <ul className="text-gray-300 text-lg">
                         {place?.map((item) => (
-                            <li key={item}><a href="">{item}</a></li>
+                            <li key={item}><a href="" className="hover:text-amber-700 transition-all duration-300">{item}</a></li>
                         ))}
                     </ul>
                 </div>
@@ -50,7 +61,7 @@ const Footer = () => {
                     <h3 className="font-bold text-2xl mb-4">About Us</h3>
                     <ul className="text-gray-300 text-lg">
                         {career?.map((item) => (
-                            <li key={item}><a href="">{item}</a></li>
+                            <li key={item}><a href="" className="hover:text-amber-700 transition-all duration-300">{item}</a></li>
                         ))}
                     </ul>
                 </div>
@@ -58,14 +69,25 @@ const Footer = () => {
             {/* Social Media Icons */}
             <div className="flex justify-center gap-12 mt-12">
                 <a href="https://www.facebook.com/FrenchSideTravel/" target="_blank" rel="noopener noreferrer">
-                    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="Facebook" className="w-20 h-14 text-white" style={{filter:'brightness(0) invert(1)'}} />
+                    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="Facebook" className="w-20 h-14 text-white" style={{ filter: 'brightness(0) invert(1)' }} />
                 </a>
                 <a href="https://www.youtube.com/channel/UCAlPXB2DuWXX49Fx2pEUppQ" target="_blank" rel="noopener noreferrer">
-                    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/youtube.svg" alt="YouTube" className="w-20 h-14 text-white" style={{filter:'brightness(0) invert(1)'}}/>
+                    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/youtube.svg" alt="YouTube" className="w-20 h-14 text-white" style={{ filter: 'brightness(0) invert(1)' }} />
                 </a>
                 <a href="https://www.instagram.com/frenchsidetravel/" target="_blank" rel="noopener noreferrer">
-                    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram" className="w-20 h-14 text-white" style={{filter:'brightness(0) invert(1)'}}/>
+                    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram" className="w-20 h-14 text-white" style={{ filter: 'brightness(0) invert(1)' }} />
                 </a>
+            </div>
+            {/* Notice */}
+            <div className="flex justify-center mt-12">
+                <Link
+                    target="_blank"
+                    style={hovered ? linkHoverStyle : linkStyle}
+                    onMouseEnter={() => setHovered(true)} // hover bo'lsa
+                    onMouseLeave={() => setHovered(false)} // hoverdan chiqsa
+                >
+                    Legal Notice
+                </Link>
             </div>
         </footer>
     )
