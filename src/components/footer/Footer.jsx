@@ -18,7 +18,7 @@ const Footer = () => {
 
     const linkHoverStyle = {
         ...linkStyle,
-        color: '#ffa500', // hover rangini belgilash
+        color: '#ffa500',
     };
     return (
         <footer className="bg-[#1F3653] text-white py-12 px-4 sm:px-6 lg:px-8">
