@@ -22,7 +22,8 @@ const Footer = () => {
     };
     return (
         <footer className="bg-[#1F3653] text-white py-12 px-4 sm:px-6 lg:px-8">
-            <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[minmax(300px,2fr)_1fr_1fr_1fr] gap-10">
+          <div className="max-w-[1240px] px-[20px] mx-auto w-full">
+          <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[minmax(300px,2fr)_1fr_1fr_1fr] gap-10">
                 {/* Subscription Section */}
                 <div className="md:mr-[80px]">
                     <h1 className="text-3xl font-bold mb-3 leading-tight">{translations[language]?.title || translations?.en?.title}</h1>
@@ -89,6 +90,7 @@ const Footer = () => {
                     Legal Notice
                 </Link>
             </div>
+          </div>
         </footer>
     )
 }

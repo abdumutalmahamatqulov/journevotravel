@@ -5,6 +5,7 @@ import HomePage from './pages/home/HomePage';
 import FrenchsidetravelPage from './travels/FrenchsidetravelPage';
 import { Provider } from 'react-redux';
 import { store } from './redux/store';
+import TravelIdeas from './components/traveltypes/travelIdeas';
 
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
           <Route element={<Layout />}>
             <Route index element={<HomePage />} />
             <Route path="travels" element={<FrenchsidetravelPage />} />
+            <Route path='travel-ideas'element={<TravelIdeas/>}/>
           </Route>
         </Routes>
       </BrowserRouter>

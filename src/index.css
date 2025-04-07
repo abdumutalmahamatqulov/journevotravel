@@ -1,1 +1,8 @@
 @import "tailwindcss";
+
+.bg-gradient-hero {
+    background-image: linear-gradient(to top, #1F3653 0%, #0a1a3800 100%);
+  }
+  .text-shadow{
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  }
