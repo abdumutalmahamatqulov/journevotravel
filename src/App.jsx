@@ -6,6 +6,8 @@ import FrenchsidetravelPage from './travels/FrenchsidetravelPage';
 import { Provider } from 'react-redux';
 import { store } from './redux/store';
 import TravelIdeas from './components/traveltypes/travelIdeas';
+import 'swiper/css';
+import 'swiper/css/navigation';
 
 function App() {
 
