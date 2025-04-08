@@ -8,6 +8,7 @@ import { store } from './redux/store';
 import TravelIdeas from './components/traveltypes/travelIdeas';
 import 'swiper/css';
 import 'swiper/css/navigation';
+import FamilyTripFrance from './components/traveltypes/ideasPage/FamilyFriendlyTravel/FamilyTripFrance';
 
 function App() {
 
@@ -19,6 +20,7 @@ function App() {
             <Route index element={<HomePage />} />
             <Route path="travels" element={<FrenchsidetravelPage />} />
             <Route path='travel-ideas'element={<TravelIdeas/>}/>
+            <Route path='travel-ideas/family-trip-france'element={<FamilyTripFrance/>}/>
           </Route>
         </Routes>
       </BrowserRouter>
