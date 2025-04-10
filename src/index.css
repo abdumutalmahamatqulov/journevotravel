@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Mate:ital@0;1&family=Oswald:wght@200..700&display=swap');
 @import "tailwindcss";
 
 .bg-gradient-hero {
@@ -9,4 +10,19 @@
 }
 .swiper-button-prev, .swiper-button-next{
   color: #c2ac57 !important;
+}
+.custom-card{
+  padding: 0 !important;
+}
+
+.image-category-title{
+  font-family: "Mate", serif;
+  font-weight: 400;
+  font-style: italic;
+  font-weight: 600;
+}
+.image-category-titles{
+  font-family: "Mate", serif;
+  font-weight: 400;
+  font-style: italic;
 }

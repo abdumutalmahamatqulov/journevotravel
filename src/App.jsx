@@ -9,6 +9,8 @@ import TravelIdeas from './components/traveltypes/travelIdeas';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import FamilyTripFrance from './components/traveltypes/ideasPage/FamilyFriendlyTravel/FamilyTripFrance';
+import GroupTravel from './components/traveltypes/ideasPage/GroupTravel/GroupTravel';
+import HistoryCulture from './components/traveltypes/ideasPage/HistoryCulture/HistoryCulture';
 
 function App() {
 
@@ -21,6 +23,8 @@ function App() {
             <Route path="travels" element={<FrenchsidetravelPage />} />
             <Route path='travel-ideas'element={<TravelIdeas/>}/>
             <Route path='travel-ideas/family-trip-france'element={<FamilyTripFrance/>}/>
+            <Route path='travel-ideas/group-travel'element={<GroupTravel/>}/>
+            <Route path='travel-ideas/history-culture' element={<HistoryCulture/>}/>
           </Route>
         </Routes>
       </BrowserRouter>

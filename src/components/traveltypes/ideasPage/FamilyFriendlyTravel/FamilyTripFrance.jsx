@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { reviewers } from '../../../../data/detail'
+import { buttonText, reviewers } from '../../../../data/detail'
 import { SwiperSlide ,Swiper} from 'swiper/react'
 import { FaCheckCircle, FaStar } from 'react-icons/fa'
 import { Autoplay, Navigation } from 'swiper/modules';
@@ -19,16 +19,7 @@ function FamilyTripFrance() {
         "/chamonix-alpes-france-shutterstock-494x280.jpg",
 
     ]
-    const buttonText = [
-        'A Family Trip to Monoco',
-        'Group Travel',
-        'History & Culture',
-        'Honeymoons & Romance',
-        'Self-Drive Trips & Tours',
-        'Skiing & Adventure',
-        'Wellness & Relaxation',
-        'Wine & Food'
-    ]
+
     return (
         <main >
 

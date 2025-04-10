@@ -39,3 +39,13 @@ export const reviewers = [{
     data: "24 March 2025",
     review: "I had French Side Travel arrange for a 6-day ski trip in the French Alps.  The location they suggested (Courchevel) was so amazing -- the hotel, the town, the resort, the ski guide -- everything was first rate.  Planning next year's trip now."
   }]
+ export const buttonText = [
+    'A Family Trip to Monoco',
+    'Group Travel',
+    'History & Culture',
+    'Honeymoons & Romance',
+    'Self-Drive Trips & Tours',
+    'Skiing & Adventure',
+    'Wellness & Relaxation',
+    'Wine & Food'
+]
