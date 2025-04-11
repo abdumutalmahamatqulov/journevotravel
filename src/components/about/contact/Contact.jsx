@@ -68,7 +68,7 @@ function Contact() {
 
     const handlePhoneChange = (value) => {
         setPhoneNumber(value);
-        // Telefon raqamini saqlash
+      
     };
     const handleCountryChange = (country) => {
         setSelectedCountry(country);
