@@ -4,10 +4,13 @@ import { Link, Link as ScrollLink } from 'react-scroll';
 function HistoryCulture() {
 
     const [expandedIndex, setExpandedIndex] = useState(null);
-    const [isSticky, setIsSticky] = useState(false)
+    const [isSticky, setIsSticky] = useState(false);
+    const [selectLink , setSelectLink] = useState("tours");
+
+
     useEffect(() => {
         const handleScroll = () => {
-            if (window.scrollY > 50) {
+            if (window.scrollY > 710) {
                 setIsSticky(true);
             } else {
                 setIsSticky(false);
@@ -133,26 +136,26 @@ function HistoryCulture() {
                 </div>
             </section>
             <section className="bg-[#1F3653] pt-[30px] w-full z-50 pb-16">
-                <div className='sticky top-0 z-50 max-w-[1200px] mx-auto ' >
-                    <div className='w-full sticky top-0 z-50 bg-white'>
-                        <nav className='flex justify-center gap-10 py-4 text-[#044f70]'>
-                            <Link to="tours" smooth={true} duraction={500} offset={-80} className='cursor-pointer hover:underline'>
+                <div className={`sticky top-[70px] z-50 ${isSticky ? "": "max-w-[1200px] w-full mx-auto" } `} >
+                    <div className='w-full bg-white'>
+                        <nav className='flex justify-center gap-10 py-4 text-[#044f70] shadow-md'>
+                            <Link onClick={() => setSelectLink("tours")} to="tours" smooth={true} duraction={500} offset={-80} className={`${selectLink === "tours" && isSticky ? "underline" : ""} cursor-pointer hover:underline`}>
                                 TOURS
                             </Link>
-                            <Link to="about" smooth={true} duraction={500} offset={-80} className='cursor-pointer hover:underline '>
+                            <Link onClick={() => setSelectLink("about")} to="about" smooth={true} duraction={500} offset={-80} className={`${selectLink === "about" ? "underline" : ""} cursor-pointer hover:underline`}>
                                 ABOUT
                             </Link>
-                            <Link to="highlights" smooth={true} duraction={500} offset={-80} className='cursor-pointer hover:underline '>
+                            <Link onClick={() => setSelectLink("highlights")} to="highlights" smooth={true} duraction={500} offset={-80} className={`${selectLink === "highlights" ? "underline" : ""} cursor-pointer hover:underline`}>
                                 HIGHLIGHTS
                             </Link>
-                            <Link to="articles" smooth={true} duraction={500} offset={-80} className='cursor-pointer hover:underline '>
+                            <Link onClick={() => setSelectLink("articles")} to="articles" smooth={true} duraction={500} offset={-80} className={`${selectLink === "articles" ? "underline" : ""} cursor-pointer hover:underline`}>
                                 RELATED ARTICLES
                             </Link>
                         </nav>
                     </div>
                 </div>
                 <div className='max-w-[1240px] px-[20px] mx-auto'>
-                    <div id='tours'>
+                    <div id='tours' className='pt-[56px]'>
                         <h2 className='flex justify-center text-3xl truncate text-[#ffffff] mb-8 font-bold'>Our Favorite History & Culture Tours</h2>
                         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 ">
                             {images?.map((image, index) => (
@@ -171,7 +174,7 @@ function HistoryCulture() {
                             ))}
                         </div>
                     </div>
-                    <div id='about' className='text-white'>
+                    <div id='about' className='text-white pt-[56px]'>
                         <h2 className='flex justify-center text-3xl truncate text-[#ffffff] mb-6 mt-6 font-bold'>Our History & Culture Tours in Depth</h2>
                         <h3 className='justify-between flex text-2xl mb-2'>With French Side Travel, every detail is meticulously crafted to create unforgettable adventures.</h3>
                         <div className='justify-between flex gap-20'>
@@ -201,7 +204,7 @@ function HistoryCulture() {
                             </div>
                         </div>
                     </div>
-                    <div id='highlights' className="text-white">
+                    <div id='highlights' className="text-white pt-[56px]">
                         <h2 className='flex justify-center text-3xl truncate text-[#ffffff] mb-6 mt-6 font-bold'>Exclusive Experiences</h2>
                         {experiences.map((experience, index) => {
                             const shortContent = getShortContent(experience.subContent);
@@ -233,7 +236,7 @@ function HistoryCulture() {
                             );
                         })}
                     </div>
-                    <div id='articles'>
+                    <div id='articles' className='pt-[56px]'>
                         <div>
                             <h2 className='flex justify-center text-3xl truncate text-[#ffffff] mb-8 font-bold'>Related Articles</h2>
                             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 ">

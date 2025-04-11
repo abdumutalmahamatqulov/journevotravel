@@ -10,41 +10,41 @@ import { reviewers } from '../../data/detail';
 export default function TravelIdeas() {
   const images = [
     {
-      rasm: "/src/assets/family-trip-normandy-france-cliffs-coast-etretat-shutterstock.jpg",
+      rasm: "/family-trip-normandy-france-cliffs-coast-etretat-shutterstock.jpg",
       title: "Family-friendly Travel",
       url:"family-trip-france"
     }, {
 
-      rasm: "/src/assets/Cover-photo-Group-Travel-3-jpg.webp",
+      rasm: "/Cover-photo-Group-Travel-3-jpg.webp",
       title: 'Group Travel',
       url:"group-travel"
     }, {
 
-      rasm: "src/assets/van-gogh-carrieres-lumieres-le-baux-provence-jameswrodriguez.jpg",
+      rasm: "/van-gogh-carrieres-lumieres-le-baux-provence-jameswrodriguez.jpg",
       title: 'History & Culture',
       url:"history-culture"
     }, {
 
-      rasm: "src/assets/couple-drink-wine-paris-france-shutterstock.jpg",
+      rasm: "/couple-drink-wine-paris-france-shutterstock.jpg",
       title: 'Honeymoons & Romance',
       url:"honeymoons-romance"
     }, {
 
-      rasm: "src/assets/paris-car-self-drive.jpg",
+      rasm: "/paris-car-self-drive.jpg",
       title: 'Self-Drive Trips & Tours',
       url:"self-drive-trips-tours"
     }, {
-      rasm: "src/assets/Val-Thorens_skiing.jpg",
+      rasm: "/Val-Thorens_skiing.jpg",
       title: 'Skiing & Adventure',
       url:"skiing-adventure"
     }, {
 
-      rasm: "src/assets/Wellness-spa.jpg",
+      rasm: "/Wellness-spa.jpg",
       title: 'Wellness & Relaxation',
       url:"wellness-relaxation-france"
     }, {
 
-      rasm: "src/assets/vineyard-couple-romance-wine-shutterstock.jpg",
+      rasm: "/vineyard-couple-romance-wine-shutterstock.jpg",
       title: 'Wine & Food',
       url:"wine-food-tours-2"
     }

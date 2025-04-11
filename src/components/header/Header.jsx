@@ -58,7 +58,7 @@ const Navbar = () => {
             </div>
 
             {/* Navigation Links */}
-            <div style={{ display: 'flex', alignItems: 'center', gap: '30px', color: '#0b2941', fontSize: '16px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '30px', color: '#0b2941', fontSize: '16px'}}>
                 <Dropdown overlay={menuDestinations} trigger={['hover']}>
                     <a onClick={(e) => e.preventDefault()} className="hover:underline">
                         Destinations <DownOutlined />
