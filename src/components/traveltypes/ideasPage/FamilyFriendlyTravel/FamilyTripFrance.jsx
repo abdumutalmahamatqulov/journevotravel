@@ -40,7 +40,7 @@ function FamilyTripFrance() {
                     </h3>
                     {/* <!-- callout button --> */}
                     <div className=' p-3 w-full max-w-xs relative z-10'>
-                        <a href="" className='inline-block bg-[#1b3154] text-[#ffffff] py-2 px-12 rounded-full  text-xl transition-colors hover:text-[#c2ac57] hover:bg-[#04232d] duration-300 cursor-pointer'
+                        <a href="/customize-your-trip" className='inline-block bg-[#1b3154] text-[#ffffff] py-2 px-12 rounded-full  text-xl transition-colors hover:text-[#c2ac57] hover:bg-[#04232d] duration-300 cursor-pointer'
                         >
                             Customize My Trip
                         </a>

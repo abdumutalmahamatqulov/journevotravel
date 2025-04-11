@@ -9,30 +9,52 @@ import { reviewers } from '../../data/detail';
 
 export default function TravelIdeas() {
   const images = [
-    "/src/assets/family-trip-normandy-france-cliffs-coast-etretat-shutterstock.jpg",
-    "/src/assets/Cover-photo-Group-Travel-3-jpg.webp",
-    "src/assets/van-gogh-carrieres-lumieres-le-baux-provence-jameswrodriguez.jpg",
-    "src/assets/couple-drink-wine-paris-france-shutterstock.jpg",
-    "src/assets/paris-car-self-drive.jpg",
-    "src/assets/Val-Thorens_skiing.jpg",
-    "src/assets/Wellness-spa.jpg",
-    "src/assets/vineyard-couple-romance-wine-shutterstock.jpg"
-  ]
-  const buttonText = [
-    'Family-friendly Travel',
-    'Group Travel',
-    'History & Culture',
-    'Honeymoons & Romance',
-    'Self-Drive Trips & Tours',
-    'Skiing & Adventure',
-    'Wellness & Relaxation',
-    'Wine & Food'
+    {
+      rasm: "/src/assets/family-trip-normandy-france-cliffs-coast-etretat-shutterstock.jpg",
+      title: "Family-friendly Travel",
+      url:"family-trip-france"
+    }, {
+
+      rasm: "/src/assets/Cover-photo-Group-Travel-3-jpg.webp",
+      title: 'Group Travel',
+      url:"group-travel"
+    }, {
+
+      rasm: "src/assets/van-gogh-carrieres-lumieres-le-baux-provence-jameswrodriguez.jpg",
+      title: 'History & Culture',
+      url:"history-culture"
+    }, {
+
+      rasm: "src/assets/couple-drink-wine-paris-france-shutterstock.jpg",
+      title: 'Honeymoons & Romance',
+      url:"honeymoons-romance"
+    }, {
+
+      rasm: "src/assets/paris-car-self-drive.jpg",
+      title: 'Self-Drive Trips & Tours',
+      url:"self-drive-trips-tours"
+    }, {
+      rasm: "src/assets/Val-Thorens_skiing.jpg",
+      title: 'Skiing & Adventure',
+      url:"skiing-adventure"
+    }, {
+
+      rasm: "src/assets/Wellness-spa.jpg",
+      title: 'Wellness & Relaxation',
+      url:"wellness-relaxation-france"
+    }, {
+
+      rasm: "src/assets/vineyard-couple-romance-wine-shutterstock.jpg",
+      title: 'Wine & Food',
+      url:"wine-food-tours-2"
+    }
+
   ]
   return (
     <main>
       <section
         style={{
-          backgroundImage: 'url("./src/assets/eiffel-tour-paris-france-tours.jpg")',
+          backgroundImage: 'url("/eiffel-tour-paris-france-tours.jpg")',
           backgroundSize: 'cover',
           backgroundPosition: 'top',
           backgroundRepeat: 'no-repeat'
@@ -46,7 +68,7 @@ export default function TravelIdeas() {
           </h3>
           {/* <!-- callout button --> */}
           <div className=' p-3 w-full max-w-xs relative z-10'>
-            <a href="" className='inline-block bg-[#e8dcba] text-[#1b3154] py-2 px-12 rounded-full  text-xl transition-colors hover:text-white hover:bg-blue-900 duration-300 cursor-pointer'
+            <a href="/customize-your-trip" className='inline-block bg-[#e8dcba] text-[#1b3154] py-2 px-12 rounded-full  text-xl transition-colors hover:text-white hover:bg-blue-900 duration-300 cursor-pointer'
             >
               Customize My Trip
             </a>
@@ -55,23 +77,23 @@ export default function TravelIdeas() {
       </section>
       <section className="bg-[#1F3653] pt-[30px] w-full z-50 pb-16">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-[1240px] px-[20px] mx-auto">
-          {images.map((rasm, index) => (
+          {images.map((text, index) => (
             <div
               key={index}
               className="relative bg-white rounded-lg overflow-hidden shadow-lg"
             >
               <img
-                src={rasm}
+                src={text.rasm}
                 alt={`travel-${index}`}
                 className="w-full h-64 object-cover"
               />
-
               <Link
-                to={"/"}
+                key={index}
+                to={`/travel-ideas/${text.url.toLowerCase().replace(/\s+/g, '-').replace(/&/g, 'and')}`}
                 className="absolute w-[80%] mx-auto text-center bottom-4 left-1/2 transform -translate-x-1/2 bg-white/60 py-2 px-8 rounded-lg text-[#1b3154] whitespace-nowrap"
 
               >
-                {buttonText[index]}
+                { text.title}
               </Link>
             </div>
           ))}
