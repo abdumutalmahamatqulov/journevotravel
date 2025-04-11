@@ -1,0 +1,9 @@
+{
+  "redirects": [
+    {
+      "source": "/:slug",
+      "destination": "http://localhost:5173/:slug",
+      "permanent": false
+    }
+  ]
+}
