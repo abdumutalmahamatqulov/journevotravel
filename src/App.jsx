@@ -5,7 +5,7 @@ import HomePage from './pages/home/HomePage';
 import FrenchsidetravelPage from './travels/FrenchsidetravelPage';
 import { Provider } from 'react-redux';
 import { store } from './redux/store';
-import TravelIdeas from './components/traveltypes/travelIdeas';
+import TravelIdeas from './components/traveltypes/TravelIdeas';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import FamilyTripFrance from './components/traveltypes/ideasPage/FamilyFriendlyTravel/FamilyTripFrance';
