@@ -96,7 +96,7 @@ function Contact() {
             </section>
             <section className='bg-white w-full'>
                 <div className='max-w-[720px] mx-auto'>
-                    <h3 className='justify-center flex font-[700] text-lg text-[#1b3154]'>Need some help getting started? Have a question about France?</h3>
+                    <h3 className='justify-start flex font-[700] text-lg text-[#1b3154] pt-5'>Need some help getting started? Have a question about France?</h3>
                     <div className='flex justify-between gap-[50px] space-y-10'>
                         <div className='text-[#1b3154] w-[45%] space-y-5 mt-8'>
                             <p className='font-[700]'>We would love to hear from you. </p>
