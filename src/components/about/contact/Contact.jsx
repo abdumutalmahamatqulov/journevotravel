@@ -72,7 +72,7 @@ function Contact() {
     };
     const handleCountryChange = (country) => {
         setSelectedCountry(country);
-        setPhoneNumber('');  // Davlatni tanlagandan so'ng telefon raqami o'chadi
+        setPhoneNumber('');  
     };
     const handleSubmit = (values) => {
         console.log('Form qiymatlari:', { ...values, number: phoneNumber });
