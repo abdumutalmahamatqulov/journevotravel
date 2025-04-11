@@ -26,3 +26,12 @@
   font-weight: 400;
   font-style: italic;
 }
+.input-animation {
+  transition: all 0.4s ease; 
+  border: 2px solid #044f70;
+}
+
+.input-animation:focus {
+  border-color: #044f70; 
+  box-shadow: 0 0 8px rgba(4, 79, 112, 0.6);
+}

@@ -11,6 +11,7 @@ import 'swiper/css/navigation';
 import FamilyTripFrance from './components/traveltypes/ideasPage/FamilyFriendlyTravel/FamilyTripFrance';
 import GroupTravel from './components/traveltypes/ideasPage/GroupTravel/GroupTravel';
 import HistoryCulture from './components/traveltypes/ideasPage/HistoryCulture/HistoryCulture';
+import Contact from './components/about/contact/Contact';
 
 function App() {
 
@@ -25,6 +26,7 @@ function App() {
             <Route path='travel-ideas/family-trip-france'element={<FamilyTripFrance/>}/>
             <Route path='travel-ideas/group-travel'element={<GroupTravel/>}/>
             <Route path='travel-ideas/history-culture' element={<HistoryCulture/>}/>
+            <Route path='contact' element={<Contact/>}/>
           </Route>
         </Routes>
       </BrowserRouter>
