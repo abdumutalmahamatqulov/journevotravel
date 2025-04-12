@@ -72,9 +72,9 @@ const Navbar = () => {
                 </Dropdown>
 
                 <Dropdown overlay={menuAboutUs} trigger={['hover']}>
-                    <a onClick={(e) => e.preventDefault()} className="hover:underline">
+                    <Link to='/contact' className="hover:underline">
                         About Us <DownOutlined />
-                    </a>
+                    </Link>
                 </Dropdown>
 
                 <a href="/inspiration" className="hover:underline">Travel Inspiration</a>
