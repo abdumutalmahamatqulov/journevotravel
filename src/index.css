@@ -35,3 +35,12 @@
   border-color: #044f70; 
   box-shadow: 0 0 8px rgba(4, 79, 112, 0.6);
 }
+.travel-link{
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: all 0.2s;
+  color: #1F3653; /* Asl rang */
+}
+.travel-link:hover{
+  color: #c2ac57;
+}

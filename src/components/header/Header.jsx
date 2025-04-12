@@ -2,41 +2,94 @@ import { Layout, Menu, Dropdown, Button } from 'antd';
 import { DownOutlined, PhoneOutlined } from '@ant-design/icons';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-// import Link from 'antd/es/typography/Link';
 
 const { Header } = Layout;
+
+
 const menuStyle = {
-    backgroundColor: '#132c52', // blue
-    color: 'white',
+    backgroundColor: '#132c52',
     borderRadius: '4px',
-  };
+    padding: '10px 20px',
+};
+
+const menuItemStyle = {
+    color: 'white',
+    fontSize: '15px',
+    padding: '8px 0',
+    transition: 'background 0.2s',
+};
 
 const menuDestinations = (
-    <Menu>
-        <Menu.Item><a href="/dest/paris">Paris</a></Menu.Item>
-        <Menu.Item><a href="/dest/nice">Nice</a></Menu.Item>
-        <Menu.Item><a href="/dest/provence">Provence</a></Menu.Item>
+    <Menu style={menuStyle}>{[
+        ['Alsace', '/destinations/alsace/'],
+        ['Basque Country', '/destinations/basque-country/'],
+        ['Bordeaux', '/destinations/bordeaux-tours-trips/'],
+        ['Burgundy', '/destinations/burgundy-tours-trips/'],
+        ['Champagne', '/destinations/champagne-tours-trips/'],
+        ['Corsica', '/destinations/corsica-tours-trips/'],
+        ['French Alps', '/destinations/french-alps-ski-tours-trips/'],
+        ['Loire Valley', '/destinations/loire-valley-tours/'],
+    ].map(([label, path]) => (
+        <Menu.Item
+            key={path}
+            className='travel-link'
+            style={menuItemStyle}
+        >
+            <Link to={path} style={{ color: 'inherit' }}>{label}</Link>
+        </Menu.Item>
+    ))}
     </Menu>
 );
 
 const menuTravelTypes = (
-    <Menu >
-        <Menu.Item><Link href="/travel/family">Family Trips</Link></Menu.Item>
-        <Menu.Item><a href="/travel/group">Group Travel</a></Menu.Item>
-        <Menu.Item><a href="/travel/luxury">Luxury Travel</a></Menu.Item>
+    <Menu style={menuStyle}>
+        {[
+            ['Family-Friendly Travel', '/travel/family'],
+            ['Group Travel', '/travel/group'],
+            ['History & Culture', '/travel/history'],
+            ['Honeymoons & Romance', '/travel/romance'],
+            ['Self-Drive Trips & Tours', '/travel/self-drive'],
+            ['Skiing & Adventure', '/travel/adventure'],
+            ['Wellness & Relaxation', '/travel/wellness'],
+            ['Wine & Food', '/travel/food'],
+        ].map(([label, path]) => (
+            <Menu.Item
+                key={path}
+                className='travel-link'
+                style={menuItemStyle}
+            >
+
+                <Link to={path} style={{ color: 'inherit' }}>{label}</Link>
+            </Menu.Item>
+        ))}
     </Menu>
 );
 
 const menuAboutUs = (
-    <Menu >
-        <Menu.Item><a href="/about/team">About Us</a></Menu.Item>
-        <Menu.Item><a href="/about/mission">Client Testimonials</a></Menu.Item>
-        <Menu.Item><Link to="/contact">Contact</Link></Menu.Item>
+    <Menu style={menuStyle}>
+                {[
+            ['About Us', '/about'],
+            ['Client Testimonials', '/client-testimonials-1/'],
+            ['Our Travel Designers', '/travel-designers/'],
+            ['FAQ', '/faq/'],
+            ['Contact', '/contact/'],
+            ['For Agencies & Operators', '/work-with-us/']
+        ].map(([label, path]) => (
+            <Menu.Item
+                key={path}
+                className='travel-link'
+                style={menuItemStyle}
+            >
+
+                <Link to={path} style={{ color: 'inherit' }}>{label}</Link>
+            </Menu.Item>
+        ))}
     </Menu>
 );
 
 const Navbar = () => {
     const [textColor, setTextColor] = useState('#fff');
+    const [openDropdown, setOpenDropdown] = useState(null);
     return (
         <Header
             style={{
@@ -52,51 +105,117 @@ const Navbar = () => {
                 boxShadow: '0 2px 4px rgba(0,0,0,0.05)',
             }}
         >
-            {/* Logo */}
-            <div>
-                <img src="/frenchside-logo.svg" alt="Logo" style={{ height: 40 }} />
-            </div>
+            <div
+                style={{
+                    maxWidth: '1240px',
+                    margin: '0 auto',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                    height: '100%',
+                    gap: '30px'
+                }}
+            >
 
-            {/* Navigation Links */}
-            <div style={{ display: 'flex', alignItems: 'center', gap: '30px', color: '#0b2941', fontSize: '16px'}}>
-                <Dropdown overlay={menuDestinations} trigger={['hover']}>
-                    <a onClick={(e) => e.preventDefault()} className="hover:underline">
-                        Destinations <DownOutlined />
-                    </a>
-                </Dropdown>
-
-                <Dropdown overlay={menuTravelTypes} trigger={['hover']}>
-                    <Link to='/travel-ideas' className="hover:underline">
-                        Travel Types <DownOutlined />
-                    </Link>
-                </Dropdown>
-
-                <Dropdown overlay={menuAboutUs} trigger={['hover']}>
-                    <a onClick={(e) => e.preventDefault()} className="hover:underline">
-                        About Us <DownOutlined />
-                    </a>
-                </Dropdown>
-
-                <a href="/inspiration" className="hover:underline">Travel Inspiration</a>
-
-                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                    <PhoneOutlined />
-                    <span style={{ fontWeight: 600 }}>+1 646 809 1975</span>
+                {/* Logo */}
+                <div className='px-5'>
+                    <img src="/frenchside-logo.svg" alt="Logo" style={{ height: 40 }} />
                 </div>
 
-                <Button
-                    type="primary"
-                    onMouseEnter={() => setTextColor('#c2ac57')}
-                    onMouseLeave={() => setTextColor('#fff')}
+                {/* Navigation Links */}
+                <div
                     style={{
-                        backgroundColor: '#132c52',
-                        borderRadius: '20px',
-                        fontWeight: 500,
-                        color: textColor,
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '30px',
+                        fontSize: '16px',
+                        flexWrap: 'wrap',
                     }}
                 >
-                    Customize Your Trip
-                </Button>
+                    <Dropdown
+                        overlay={menuDestinations}
+                        trigger={['hover']}
+                        onVisibleChange={(visible) => setOpenDropdown(visible ? 'destinations' : null)}
+                    >
+                        <div
+                            style={{
+                                padding: '8px 12px',
+                                borderRadius: '6px',
+                                backgroundColor: openDropdown === 'destinations' ? '#132c52' : 'transparent',
+                                color: openDropdown === 'destinations' ? 'white' : '#0b2941',
+                                transition: 'all 0.2s',
+                            }}
+                        >
+                            <Link
+                                to='/destinations'
+
+                            >Destinations</Link>    <DownOutlined />
+                        </div>
+                    </Dropdown>
+
+                    <Dropdown
+                        overlay={menuTravelTypes}
+                        trigger={['hover']}
+                        onVisibleChange={(visible) => setOpenDropdown(visible ? 'travel-ideas' : null)}
+                    >
+                        <div
+                            style={{
+                                padding: '8px 12px',
+                                borderRadius: '6px',
+                                backgroundColor: openDropdown === 'travel-ideas' ? '#132c52' : 'transparent',
+                                color: openDropdown === 'travel-ideas' ? 'white' : '#0b2941',
+                                transition: 'all 0.2s',
+                            }}
+                        >
+                            <Link
+                                to='/travel-ideas'
+
+                            >Travel Types</Link>    <DownOutlined />
+                        </div>
+                    </Dropdown>
+
+                    <Dropdown
+                        overlay={menuAboutUs}
+                        trigger={['hover']}
+                        onVisibleChange={(visible) => setOpenDropdown(visible ? 'about' : null)}
+                    >
+                        <div
+                            style={{
+                                padding: '8px 12px',
+                                borderRadius: '6px',
+                                backgroundColor: openDropdown === 'about' ? '#132c52' : 'transparent',
+                                color: openDropdown === 'about' ? 'white' : '#0b2941',
+                                transition: 'all 0.2s',
+                            }}
+                        >
+                            <Link
+                                to='/about'
+
+                            >About Us</Link>    <DownOutlined />
+                        </div>
+                    </Dropdown>
+
+                    <a href="/inspiration" className="hover:underline">Travel Inspiration</a>
+
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                        <PhoneOutlined />
+                        <span style={{ fontWeight: 600 }}>+1 646 809 1975</span>
+                    </div>
+
+                    <Button
+                        type="primary"
+                        onMouseEnter={() => setTextColor('#c2ac57')}
+                        onMouseLeave={() => setTextColor('#fff')}
+                        style={{
+                            backgroundColor: '#132c52',
+                            borderRadius: '20px',
+                            fontWeight: 500,
+                            color: textColor,
+                        }}
+                    >
+                        Customize Your Trip
+                    </Button>
+                </div>
             </div>
         </Header>
     );
