@@ -67,7 +67,7 @@ const menuTravelTypes = (
 
 const menuAboutUs = (
     <Menu style={menuStyle}>
-                {[
+        {[
             ['About Us', '/about'],
             ['Client Testimonials', '/client-testimonials-1/'],
             ['Our Travel Designers', '/travel-designers/'],
@@ -90,6 +90,11 @@ const menuAboutUs = (
 const Navbar = () => {
     const [textColor, setTextColor] = useState('#fff');
     const [openDropdown, setOpenDropdown] = useState(null);
+    const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+    const toggleMobileMenu = () => {
+        setMobileMenuOpen(!isMobileMenuOpen);
+    };
     return (
         <Header
             style={{
@@ -121,9 +126,16 @@ const Navbar = () => {
                 <div className='px-5'>
                     <img src="/frenchside-logo.svg" alt="Logo" style={{ height: 40 }} />
                 </div>
+                {/* Hamburger Menu (Mobile only) */}
+                <div className={`hamburger ${isMobileMenuOpen ? 'open' : ''}`} onClick={toggleMobileMenu}>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
 
                 {/* Navigation Links */}
                 <div
+                className={`nav-links ${isMobileMenuOpen? 'active':''}`}
                     style={{
                         display: 'flex',
                         alignItems: 'center',
@@ -195,7 +207,7 @@ const Navbar = () => {
                         </div>
                     </Dropdown>
 
-                    <a href="/inspiration" className="hover:underline">Travel Inspiration</a>
+                    <Link to="/blog/" className="hover:underline travel-inspiration-link">Travel Inspiration</Link>
 
                     <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                         <PhoneOutlined />
