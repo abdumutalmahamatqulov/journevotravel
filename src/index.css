@@ -55,71 +55,35 @@
   background-color: rgba(4, 79, 112, 0.1);
   color: inherit; 
 }
-/* Hamburger icon  responsive*/
-.hamburger {
+/* Hamburger icon style (for Ant Design MenuOutlined) */
+.hamburger-icon {
   display: none;
   cursor: pointer;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 20px;
-  width: 25px;
 }
 
-.hamburger div {
-  background-color: #061428;
-  height: 3px;
-  width: 100%;
-  transition: 0.3s;
-}
-.hamburger.open div:nth-child(1) {
-  transform: rotate(45deg);
-  position: relative;
-  top: 6px;
-}
-
-.hamburger.open div:nth-child(2) {
-  opacity: 0;
-}
-
-.hamburger.open div:nth-child(3) {
-  transform: rotate(-45deg);
-  position: relative;
-  top: -6px;
-}
-
-/* Media query for mobile responsiveness */
-@media (max-width: 1100px) {
-  .hamburger {
-    display: flex;
+@media only screen and (max-width: 1100px) {
+  .hamburger-icon {
+    display: block;
   }
-
-  .nav-links {
-    display: none; /* Mobileda menyu startini yashirish */
-    flex-direction: column;
-    gap: 20px;
-    position: absolute;
-    top: 70px;
-    left: 0;
-    background: white;
-    padding: 10px;
-    width: 100%;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
-    z-index: 1000;
-  }
-
-  .nav-links.show {
-    display: flex;
-  }
-
-  .nav-links a {
-    text-align: center;
-    padding: 12px;
-    font-size: 16px;
-    color: #132c52;
-    text-decoration: none;
-  }
-  .nav-links a:hover{
-    background-color: #f4f4f4;
+  .nav-links .nav-item{
+    display: none;
   }
 }
+@media only screen and (max-width:600px) {
 
+  .nav-links .nav-item {
+    display: none; /* Hide nav items */
+  }
+
+  .nav-links.open .nav-item {
+    display: block; /* Show nav items when menu is open */
+  }
+
+  .nav-links.open .trav-link {
+    display: block; /* Show button in the mobile menu */
+  }
+
+  .nav-links .trav-link {
+    display: none; /* Show button in the mobile menu */
+  }
+}

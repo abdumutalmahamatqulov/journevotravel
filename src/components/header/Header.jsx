@@ -2,6 +2,7 @@ import { Layout, Menu, Dropdown, Button } from 'antd';
 import { DownOutlined, PhoneOutlined } from '@ant-design/icons';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { MenuOutlined, CloseOutlined } from '@ant-design/icons';
 
 const { Header } = Layout;
 
@@ -101,15 +102,16 @@ const Navbar = () => {
                 position: 'sticky',
                 top: 0,
                 zIndex: 1000,
+                width: '100%',
                 background: '#fff',
                 padding: '0 40px',
                 height: '70px',
-                display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'space-between',
                 boxShadow: '0 2px 4px rgba(0,0,0,0.05)',
             }}
         >
+
             <div
                 style={{
                     maxWidth: '1240px',
@@ -126,28 +128,25 @@ const Navbar = () => {
                 <div className='px-5'>
                     <img src="/frenchside-logo.svg" alt="Logo" style={{ height: 40 }} />
                 </div>
-                {/* Hamburger Menu (Mobile only) */}
-                <div className={`hamburger ${isMobileMenuOpen ? 'open' : ''}`} onClick={toggleMobileMenu}>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                </div>
+
 
                 {/* Navigation Links */}
                 <div
-                className={`nav-links ${isMobileMenuOpen? 'active':''}`}
                     style={{
                         display: 'flex',
                         alignItems: 'center',
                         gap: '30px',
                         fontSize: '16px',
                         flexWrap: 'wrap',
+
                     }}
+                    className="nav-links"
                 >
                     <Dropdown
                         overlay={menuDestinations}
                         trigger={['hover']}
                         onVisibleChange={(visible) => setOpenDropdown(visible ? 'destinations' : null)}
+                        className='nav-item'
                     >
                         <div
                             style={{
@@ -168,6 +167,7 @@ const Navbar = () => {
                     <Dropdown
                         overlay={menuTravelTypes}
                         trigger={['hover']}
+                        className='nav-item'
                         onVisibleChange={(visible) => setOpenDropdown(visible ? 'travel-ideas' : null)}
                     >
                         <div
@@ -189,6 +189,7 @@ const Navbar = () => {
                     <Dropdown
                         overlay={menuAboutUs}
                         trigger={['hover']}
+                        className='nav-item'
                         onVisibleChange={(visible) => setOpenDropdown(visible ? 'about' : null)}
                     >
                         <div
@@ -201,15 +202,16 @@ const Navbar = () => {
                             }}
                         >
                             <Link
+
                                 to='/about'
 
                             >About Us</Link>    <DownOutlined />
                         </div>
                     </Dropdown>
 
-                    <Link to="/blog/" className="hover:underline travel-inspiration-link">Travel Inspiration</Link>
+                    <Link to="/blog/" className="hover:underline travel-inspiration-link nav-item">Travel Inspiration</Link>
 
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                    <div className='nav-item'>
                         <PhoneOutlined />
                         <span style={{ fontWeight: 600 }}>+1 646 809 1975</span>
                     </div>
@@ -224,11 +226,131 @@ const Navbar = () => {
                             fontWeight: 500,
                             color: textColor,
                         }}
+                        className='trav-link'
                     >
                         Customize Your Trip
                     </Button>
                 </div>
+                <div className="hamburger-icon" onClick={toggleMobileMenu}>
+                    {isMobileMenuOpen ? <CloseOutlined style={{ fontSize: 24, color: '#132c52' }} /> : <MenuOutlined style={{ fontSize: 24, color: '#132c52' }} />}
+                </div>
+
             </div>
+
+            {isMobileMenuOpen && (
+                <div
+                    style={{
+                        background: '#fff',
+                        padding: '0 40px',
+                        width: '100%',
+                        maxHeight: isMobileMenuOpen ? '1000px' : '0',
+                        overflow: 'hidden',
+                        transition: 'max-height 0.3s ease-in-out'
+                    }}
+                >
+                    <div
+                        style={{
+
+                            alignItems: 'center',
+                            gap: '30px',
+                            fontSize: '16px',
+                            flexWrap: 'wrap',
+
+                        }}
+                        className="nav-links"
+                    >
+                        <Dropdown
+                            overlay={menuDestinations}
+                            trigger={['hover']}
+                            onVisibleChange={(visible) => setOpenDropdown(visible ? 'destinations' : null)}
+
+                        >
+                            <div
+                                style={{
+                                    padding: '8px 12px',
+                                    borderRadius: '6px',
+                                    backgroundColor: openDropdown === 'destinations' ? '#132c52' : 'transparent',
+                                    color: openDropdown === 'destinations' ? 'white' : '#0b2941',
+                                    transition: 'all 0.2s',
+                                }}
+                            >
+                                <Link
+                                    to='/destinations'
+
+                                >Destinations</Link>    <DownOutlined />
+                            </div>
+                        </Dropdown>
+
+                        <Dropdown
+                            overlay={menuTravelTypes}
+                            trigger={['hover']}
+
+                            onVisibleChange={(visible) => setOpenDropdown(visible ? 'travel-ideas' : null)}
+                        >
+                            <div
+                                style={{
+                                    padding: '8px 12px',
+                                    borderRadius: '6px',
+                                    backgroundColor: openDropdown === 'travel-ideas' ? '#132c52' : 'transparent',
+                                    color: openDropdown === 'travel-ideas' ? 'white' : '#0b2941',
+                                    transition: 'all 0.2s',
+                                }}
+                            >
+                                <Link
+                                    to='/travel-ideas'
+
+                                >Travel Types</Link>    <DownOutlined />
+                            </div>
+                        </Dropdown>
+
+                        <Dropdown
+                            overlay={menuAboutUs}
+                            trigger={['hover']}
+
+                            onVisibleChange={(visible) => setOpenDropdown(visible ? 'about' : null)}
+                        >
+                            <div
+                                style={{
+                                    padding: '8px 12px',
+                                    borderRadius: '6px',
+                                    backgroundColor: openDropdown === 'about' ? '#132c52' : 'transparent',
+                                    color: openDropdown === 'about' ? 'white' : '#0b2941',
+                                    transition: 'all 0.2s',
+                                }}
+                            >
+                                <Link
+
+                                    to='/about'
+
+                                >About Us</Link>    <DownOutlined />
+                            </div>
+                        </Dropdown>
+
+                        <Link to="/blog/" className="hover:underline travel-inspiration-link nav-item">Travel Inspiration</Link>
+
+                        <div>
+                            <PhoneOutlined />
+                            <span style={{ fontWeight: 600 }}>+1 646 809 1975</span>
+                        </div>
+                        <div className={`nav-links ${isMobileMenuOpen?'open':''}`}>
+
+                            <Button
+                                type="primary"
+                                onMouseEnter={() => setTextColor('#c2ac57')}
+                                onMouseLeave={() => setTextColor('#fff')}
+                                style={{
+                                    backgroundColor: '#132c52',
+                                    borderRadius: '20px',
+                                    fontWeight: 500,
+                                    color: textColor,
+                                }}
+                            >
+                                Customize Your Trip
+                            </Button>
+                        </div>
+                    </div>
+                </div>
+            )}
         </Header>
     );
 };
