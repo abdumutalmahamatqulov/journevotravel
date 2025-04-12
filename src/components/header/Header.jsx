@@ -31,7 +31,7 @@ const menuAboutUs = (
     <Menu >
         <Menu.Item><a href="/about/team">About Us</a></Menu.Item>
         <Menu.Item><a href="/about/mission">Client Testimonials</a></Menu.Item>
-        <Menu.Item><a href="/contact">Contact</a></Menu.Item>
+        <Menu.Item><Link to="/contact">Contact</Link></Menu.Item>
     </Menu>
 );
 
@@ -72,9 +72,9 @@ const Navbar = () => {
                 </Dropdown>
 
                 <Dropdown overlay={menuAboutUs} trigger={['hover']}>
-                    <Link to='/contact' className="hover:underline">
+                    <a onClick={(e) => e.preventDefault()} className="hover:underline">
                         About Us <DownOutlined />
-                    </Link>
+                    </a>
                 </Dropdown>
 
                 <a href="/inspiration" className="hover:underline">Travel Inspiration</a>
