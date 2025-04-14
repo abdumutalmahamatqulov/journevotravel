@@ -126,7 +126,9 @@ const Navbar = () => {
 
                 {/* Logo */}
                 <div className='px-5'>
-                    <img src="/frenchside-logo.svg" alt="Logo" style={{ height: 40 }} />
+                    <Link to='/'>
+                        <img src="/frenchside-logo.svg" alt="Logo" style={{ height: 40 }} />
+                    </Link>
                 </div>
 
 
@@ -332,7 +334,7 @@ const Navbar = () => {
                             <PhoneOutlined />
                             <span style={{ fontWeight: 600 }}>+1 646 809 1975</span>
                         </div>
-                        <div className={`nav-links ${isMobileMenuOpen?'open':''}`}>
+                        <div className={`nav-links ${isMobileMenuOpen ? 'open' : ''}`}>
 
                             <Button
                                 type="primary"

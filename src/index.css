@@ -68,22 +68,23 @@
   .nav-links .nav-item{
     display: none;
   }
+
 }
 @media only screen and (max-width:600px) {
 
   .nav-links .nav-item {
-    display: none; /* Hide nav items */
+    display: none; 
   }
 
   .nav-links.open .nav-item {
-    display: block; /* Show nav items when menu is open */
+    display: block; 
   }
 
   .nav-links.open .trav-link {
-    display: block; /* Show button in the mobile menu */
+    display: block; 
   }
 
   .nav-links .trav-link {
-    display: none; /* Show button in the mobile menu */
+    display: none; 
   }
 }
