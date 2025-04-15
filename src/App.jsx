@@ -12,7 +12,6 @@ import GroupTravel from './components/traveltypes/ideasPage/GroupTravel/GroupTra
 import HistoryCulture from './components/traveltypes/ideasPage/HistoryCulture/HistoryCulture';
 import Contact from './components/about/contact/Contact';
 import TravelIdeas from './components/traveltypes/TravelIdeas';
-
 function App() {
 
   return (
