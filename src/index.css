@@ -88,7 +88,14 @@
     display: none; 
   }
 }
-
+@media (max-width:768px){
+  .swiper-button-prev{
+    left: 0px !important;
+  }
+  .swiper-button-next{
+    right: 0px !important;
+  }
+}
 .swiper-button-next,
 .swiper-button-prev {
   width: 28px !important;

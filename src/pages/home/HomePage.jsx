@@ -3,13 +3,22 @@ import { SwiperSlide, Swiper } from "swiper/react";
 import { FaCheckCircle, FaStar } from "react-icons/fa";
 import { Autoplay, Navigation } from "swiper/modules";
 import React, { useEffect, useRef, useState } from "react";
-import { BsMicMute,BsMic } from "react-icons/bs";
+import { BsMicMute, BsMic } from "react-icons/bs";
 
 import 'swiper/css';
 import 'swiper/css/navigation';
 const HomePage = () => {
     const videoRef = useRef(null);
     const [isMuted, setIsMuted] = useState(true);
+    const [expanded, setExpanded] = useState({});
+    const prevRef = useRef(null);
+    const nextRef = useRef(null);
+    const toggleExpand = (index) => {
+        setExpanded((prev) => ({
+          ...prev,
+          [index]: !prev[index],
+        }));
+      };
 
     useEffect(() => {
         if (videoRef.current) {
@@ -50,19 +59,19 @@ const HomePage = () => {
                             onClick={toggleMute}
                             className="bg-white/10 text-white px-4 py-2 rounded-lg text-xl"
                         >
-                            {isMuted ? <BsMicMute /> : <BsMic/>}
+                            {isMuted ? <BsMicMute /> : <BsMic />}
                         </button>
                     </div>
                 </div>
             </section>
             <section className="bg-white text-[#1b3154] text-[16px] font-[Montserrat] p-[40px]">
-                <div className="max-w-[1200px] mx-[154.8px]">
+                <div className="max-w-[1200px] mx-auto">
                     <h2 className="m-[26.56px] text-[32px] font-semibold leading-[1.2em] text-center text-[#1b3154] font-[Mate]">France Luxury Travel Experts</h2>
                     <div className="box-border">
                         <h3 className="text-[#1b3154] text-[1em] font-medium justify-center grid">Unique Luxury Travel Experiences in France</h3>
                         <div className="mx-auto max-w-[720px] text-[1em] font-light m-4">
                             <p class="block my-[1em] mx-0 [unicode-bidi:isolate]">Planning your dream trip to France? French Side Travel crafts
-                                <em className="italic font-[16px]">custom luxury experiences</em>
+                                <em className="italic font-[16px]">custom luxury experiences</em><br />
                                 for discerning travelers. Family vacations, honeymoons, wine-tasting, or Corsican adventures – discover it all with us. We pride ourselves on our extensive hands-on knowledge, a network of fantastic service providers, dedication to customer service, and keen attention to detail.
                             </p>
                             <p class=" my-[1em] mx-0 [unicode-bidi:isolate] justify-center grid">Named Top Travel Advisor | France Specialist on Travel + Leisure’s 2025 A-List.</p>
@@ -80,6 +89,22 @@ const HomePage = () => {
                 </div>
             </section>
             <section className="bg-white">
+                <style>
+                    {`
+                    .swiper-button-next,
+                    .swiper-button-prev {
+                        top: 60% !important;
+                        color: #1b3154;
+                    }
+                    .swiper-button-prev {
+                        left: -10px !important; /* chapga suriladi */
+                        }
+
+                    .swiper-button-next {
+                        right: -10px !important; /* o'ngga suriladi */
+                    }
+                `}
+                </style>
                 <div className='w-full max-w-3xl relative mx-auto'>
                     <Swiper
                         modules={[Navigation, Autoplay]}
@@ -100,9 +125,22 @@ const HomePage = () => {
                                         ))}
                                         <FaCheckCircle className='text-blue-600 ml-2' />
                                     </div>
-                                    <p className='text-[15px] leading-relaxed text-[#1b3154] max-w-xl mx-auto'>
-                                        {item.review}
-                                    </p>
+                                    <div className='max-w-xl mx-auto'>
+                                        <p
+                                            className={`text-[15px] leading-relaxed text-[#1b3154] ${expanded[index] ? '' : 'line-clamp-3'
+                                                }`}
+                                        >
+                                            {item.review}
+                                        </p>
+                                        {item.review.length > 150 && (
+                                            <button
+                                                onClick={() => toggleExpand(index)}
+                                                className='mt-2 text-sm text-blue-600 underline hover:text-blue-800 transition'
+                                            >
+                                                {expanded[index] ? 'Read less' : 'Read more'}
+                                            </button>
+                                        )}
+                                    </div>
                                 </div>
                             </SwiperSlide>
 
