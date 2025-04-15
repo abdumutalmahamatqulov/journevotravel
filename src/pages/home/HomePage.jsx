@@ -1,6 +1,6 @@
 import { images, reviewers } from "../../data/detail";
 import { SwiperSlide, Swiper } from "swiper/react";
-import { FaCheckCircle, FaStar } from "react-icons/fa";
+import { FaCheckCircle, FaChevronLeft, FaChevronRight, FaStar } from "react-icons/fa";
 import { Autoplay, Navigation } from "swiper/modules";
 import React, { useEffect, useRef, useState } from "react";
 import { BsMicMute, BsMic } from "react-icons/bs";
@@ -15,11 +15,10 @@ const HomePage = () => {
     const nextRef = useRef(null);
     const toggleExpand = (index) => {
         setExpanded((prev) => ({
-          ...prev,
-          [index]: !prev[index],
+            ...prev,
+            [index]: !prev[index],
         }));
-      };
-
+    };
     useEffect(() => {
         if (videoRef.current) {
             videoRef.current.muted = true; // default holatda ovoz yo'q
@@ -89,30 +88,34 @@ const HomePage = () => {
                 </div>
             </section>
             <section className="bg-white">
-                <style>
-                    {`
-                    .swiper-button-next,
-                    .swiper-button-prev {
-                        top: 60% !important;
-                        color: #1b3154;
-                    }
-                    .swiper-button-prev {
-                        left: -10px !important; /* chapga suriladi */
-                        }
-
-                    .swiper-button-next {
-                        right: -10px !important; /* o'ngga suriladi */
-                    }
-                `}
-                </style>
                 <div className='w-full max-w-3xl relative mx-auto'>
+                    {/* Custom arrows */}
+                    <button
+                        ref={prevRef}
+                        className="absolute top-[60%] left-[-100px] z-10 text-[#1b3154] text-xl"
+                    >
+                        <FaChevronLeft />
+                    </button>
+                    <button
+                        ref={nextRef}
+                        className="absolute top-[60%] right-[-100px] z-10 text-[#1b3154] text-xl"
+                    >
+                        <FaChevronRight />
+                    </button>
                     <Swiper
                         modules={[Navigation, Autoplay]}
-                        navigation={true}
                         autoplay={{ delay: 5000, disableOnInteraction: false }}
                         spaceBetween={30}
                         slidesPerView={1}
                         loop={true}
+                        navigation={{
+                            prevEl: prevRef.current,
+                            nextEl: nextRef.current,
+                        }}
+                        onBeforeInit={(swiper) => {
+                            swiper.params.navigation.prevEl = prevRef.current;
+                            swiper.params.navigation.nextEl = nextRef.current;
+                        }}
                     >
                         {reviewers?.map((item, index) => (
                             <SwiperSlide key={index}>
@@ -253,28 +256,48 @@ const HomePage = () => {
             </section>
             {/* Our Best Tour Selection */}
             <section className="bg-white pt-[3em] pb-[3em] h-[607.5px]">
-                <div className="max-w-[1400px] mx-auto h-full">
+                <div className="max-w-[1300px] mx-auto h-full">
                     <div className="flex justify-center w-full">
 
                         <h2 className="text-[#1b3154] font-[500]  my-[26.56px] text-[32px]">Our Best Tour Selection</h2>
                     </div>
                     <div className="relative overflow-visible">
+                        {/* Custom arrows */}
+                        <button
+                            ref={prevRef}
+                            className="absolute top-[50%] left-[-50px] z-10 text-[#1b3154] text-xl"
+                        >
+                            <FaChevronLeft />
+                        </button>
+                        <button
+                            ref={nextRef}
+                            className="absolute top-[50%] right-[-50px] z-10 text-[#1b3154] text-xl"
+                        >
+                            <FaChevronRight />
+                        </button>
                         <Swiper
                             modules={[Navigation, Autoplay]}
-                            navigation={true}
+                            navigation={{
+                                prevEl: prevRef.current,
+                                nextEl: nextRef.current,
+                            }}
                             autoplay={{ delay: 5000, disableOnInteraction: false }}
-                            spaceBetween={30}
+                            spaceBetween={5}
                             slidesPerView={4}
                             slidesPerGroup={4}
                             loop={true}
+                            onBeforeInit={(swiper) => {
+                                swiper.params.navigation.prevEl = prevRef.current;
+                                swiper.params.navigation.nextEl = nextRef.current;
+                            }}
                         >
                             {images?.map((item, index) => (
                                 <SwiperSlide key={index}>
-                                    <div className='w-[392px] h-[420px] p-[15px] relative bg-white'>
+                                    <div className='w-full h-auto p-[12px] relative bg-white rounded-lg shadow-sm hover:shadow-2xl'>
                                         <img
                                             src={item.rasm}
                                             alt={item.title}
-                                            className='mx-auto w-[336px] h-[390px] cursor-pointer transition-all duration-300 transform   rounded-lg'
+                                            className='mx-auto w-full  h-[360px]  rounded-lg object-cover'
                                         />
                                         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-b-lg h-[2em] w-[85%]">
 
