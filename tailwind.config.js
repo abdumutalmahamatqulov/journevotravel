@@ -4,6 +4,10 @@ import React from 'react'
 export default defineConfig({
   plugins: [
     React,
-    tailwindcss(),
   ],
+  css: {
+    postcss: {
+      plugins: [tailwindcss()],
+    },
+  },
 })

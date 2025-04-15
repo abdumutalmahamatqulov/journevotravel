@@ -49,3 +49,45 @@ export const reviewers = [{
     'Wellness & Relaxation',
     'Wine & Food'
 ]
+export const images = [
+  {
+    rasm: "/family-trip-normandy-france-cliffs-coast-etretat-shutterstock.jpg",
+    title: "Family-friendly Travel",
+    priceline:"Premium | From $6,399 pp"
+  }, {
+
+    rasm: "/Cover-photo-Group-Travel-3-jpg.webp",
+    title: 'Group Travel',
+    priceline:"Luxury | From $13,299 pp"
+  }, {
+
+    rasm: "/van-gogh-carrieres-lumieres-le-baux-provence-jameswrodriguez.jpg",
+    title: 'History & Culture',
+    priceline:"Excellence | On Request"
+  }, {
+
+    rasm: "/couple-drink-wine-paris-france-shutterstock.jpg",
+    title: 'Honeymoons & Romance',
+    priceline:"Premium | From $6,399 pp"
+  }, {
+
+    rasm: "/paris-car-self-drive.jpg",
+    title: 'Self-Drive Trips & Tours wrgfvrg',
+    priceline:"Luxury | From $5,899 pp"
+  }, {
+    rasm: "/Val-Thorens_skiing.jpg",
+    title: 'Skiing & Adventure wrgvtr',
+    priceline:"Premium | From $6,499 pp"
+  }, {
+
+    rasm: "/Wellness-spa.jpg",
+    title: 'Wellness & Relaxation egvr',
+    priceline:"Premium | From $7,399 pp"
+  }, {
+
+    rasm: "/vineyard-couple-romance-wine-shutterstock.jpg",
+    title: 'Wine & Foodwfvge',
+    priceline:"Luxury | From $12,399 pp"
+  }
+
+]
