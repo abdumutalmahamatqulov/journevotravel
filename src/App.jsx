@@ -11,7 +11,7 @@ import FamilyTripFrance from './components/traveltypes/ideasPage/FamilyFriendlyT
 import GroupTravel from './components/traveltypes/ideasPage/GroupTravel/GroupTravel';
 import HistoryCulture from './components/traveltypes/ideasPage/HistoryCulture/HistoryCulture';
 import Contact from './components/about/contact/Contact';
-import TravelIdeas from './components/traveltypes/travelIdeas';
+import TravelIdeas from './components/travelideas/TravelIdeas';
 function App() {
 
   return (
