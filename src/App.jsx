@@ -5,13 +5,13 @@ import HomePage from './pages/home/HomePage';
 import FrenchsidetravelPage from './travels/FrenchsidetravelPage';
 import { Provider } from 'react-redux';
 import { store } from './redux/store';
-import TravelIdeas from './components/traveltypes/TravelIdeas';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import FamilyTripFrance from './components/traveltypes/ideasPage/FamilyFriendlyTravel/FamilyTripFrance';
 import GroupTravel from './components/traveltypes/ideasPage/GroupTravel/GroupTravel';
 import HistoryCulture from './components/traveltypes/ideasPage/HistoryCulture/HistoryCulture';
 import Contact from './components/about/contact/Contact';
+import TravelIdeas from './components/traveltypes/travelIdeas';
 
 function App() {
 

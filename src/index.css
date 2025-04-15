@@ -88,3 +88,31 @@
     display: none; 
   }
 }
+
+.swiper-button-next,
+.swiper-button-prev {
+  width: 28px !important;
+  height: 28px !important;
+  color: black !important;
+  /* background-color: rgba(255, 255, 255, 0.9); */
+  border-radius: 50%;
+  font-size: 14px !important;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  font-size: 14px !important;
+}
+.swiper-button-next {
+  right: -10px !important;
+}
+
+.swiper-button-prev {
+  left: -10px !important;
+}
+.grayscale {
+  filter: grayscale(100%);
+}
+
+

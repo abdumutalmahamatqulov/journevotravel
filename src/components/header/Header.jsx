@@ -105,7 +105,7 @@ const Navbar = () => {
                 width: '100%',
                 background: '#fff',
                 padding: '0 40px',
-                height: '90px',
+                height: 'auto',
                 alignItems: 'center',
                 justifyContent: 'space-between',
                 boxShadow: '0 2px 4px rgba(0,0,0,0.05)',
