@@ -7,7 +7,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import { reviewers } from '../../data/detail';
 
-export default function TravelIdeas() {
+function TravelIdeas() {
   const images = [
     {
       rasm: "/family-trip-normandy-france-cliffs-coast-etretat-shutterstock.jpg",
@@ -142,3 +142,4 @@ export default function TravelIdeas() {
     </main>
   )
 }
+export default TravelIdeas;
