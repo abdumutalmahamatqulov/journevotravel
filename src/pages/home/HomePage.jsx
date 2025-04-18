@@ -35,11 +35,11 @@ const HomePage = () => {
     }
     return (
         <main>
-            <section>
+            <section className="h-[68vh]">
                 <div className="relative w-full h-full">
                     <video
                         ref={videoRef}
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-cover "
                         preload="none"
                         loop
                         muted
@@ -50,8 +50,8 @@ const HomePage = () => {
                             type="video/mp4"
                         />
                     </video>
-                    <div className="absolute top-1/4 w-full flex flex-col items-center justify-center text-white drop-shadow-lg">
-                        <h1 className="text-3xl md:text-5xl font-bold mb-4 text-center">
+                    <div className="absolute top-[40%] w-full flex flex-col items-center justify-center text-white drop-shadow-lg">
+                        <h1 className="text-3xl md:text-5xl mb-4 text-center text-shadow-lg">
                             Handcrafted Private Journeys in France
                         </h1>
                         <button
@@ -88,7 +88,7 @@ const HomePage = () => {
                 </div>
             </section>
             <section className="bg-white">
-                <div className='w-full max-w-3xl relative mx-auto'>
+                <div className='w-full max-w-3xl relative mx-auto pb-4'>
                     {/* Custom arrows */}
                     <button
                         ref={prevRef}
@@ -118,7 +118,7 @@ const HomePage = () => {
                         }}
                     >
                         {reviewers?.map((item, index) => (
-                            <SwiperSlide key={index}>
+                            <SwiperSlide key={index} className="w-[400px]">
                                 <div className='text-center px-6 py-8'>
                                     <h3 className='text-lg font-semibold text-[#1b3154]'>{item.name}</h3>
                                     <p className='text-sm text-gray-500 mb-2'>{item.data}</p>
@@ -150,11 +150,34 @@ const HomePage = () => {
                         )
                         )}
                     </Swiper>
+                    <div className="flex justify-center">
+                        <span className="nowrap"><strong>Google</strong> rating score: </span>
+                        <span className="nowrap"><strong>4.9</strong>of 5,</span>
+                        <span className="">
+                            based on
+                            <strong className="underline">
+                                <a href="https://admin.trustindex.io/widget/logClick?pub_widget_id=ee2a1a21987a5749535687a253c" target="_blank" rel="noopener">163 reviews</a>
+                            </strong>
+                        </span>
+                    </div>
                 </div>
             </section>
             {/* Why French Side Travel? */}
-            <section className="bg-[#1b3154] py-16 text-white ">
-                <div className="max-w-[1200px] mx-auto p-[40px] ">
+            {/* <div className=" absolute top-0 left-0 w-full">
+                <svg
+                    className="w-full h-[100px] rotate-180"
+                    viewBox="0 0 1440 320"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <path
+                        fill="#ffffff"
+                        fillOpacity="1"
+                        d="M0,160L60,165.3C120,171,240,181,360,192C480,203,600,213,720,213.3C840,213,960,203,1080,197.3C1200,192,1320,192,1380,192L1440,192L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z" // yuqoridagi path bilan bir xil bo‘lsa ham bo‘ladi
+                    ></path>
+                </svg>
+            </div> */}
+            <section className="bg-[#1b3154] py-16 text-white relative pt-[100px] overflow-hidden">
+                <div className="max-w-[1200px] mx-auto py-20 px-6 relative z-10">
                     <h2 className="text-3xl font-bold text-center mb-12 font-[Mate]">
                         Why French Side Travel?
                     </h2>
@@ -252,6 +275,7 @@ const HomePage = () => {
                             </p>
                         </div>
                     </div>
+
                 </div>
             </section>
             {/* Our Best Tour Selection */}
@@ -317,6 +341,7 @@ const HomePage = () => {
                         </Swiper>
                     </div>
                 </div>
+
             </section>
             <section class="py-12 bg-[#1b3154]">
                 <div class="max-w-[1240px] mx-auto px-4 py-10 rounded-xl">

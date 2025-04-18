@@ -1,52 +1,61 @@
-import React from 'react'
+import React, { useRef, useState } from 'react'
 import { Link } from 'react-router-dom';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { FaStar, FaCheckCircle } from 'react-icons/fa';
+import { FaStar, FaCheckCircle, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import { Autoplay, Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import { reviewers } from '../../data/detail';
 
 function TravelIdeas() {
+      const [expanded, setExpanded] = useState({});
+      const prevRef = useRef(null);
+      const nextRef = useRef(null);
+      const toggleExpand = (index) => {
+        setExpanded((prev) => ({
+            ...prev,
+            [index]: !prev[index],
+        }));
+    };
   const images = [
     {
       rasm: "/family-trip-normandy-france-cliffs-coast-etretat-shutterstock.jpg",
       title: "Family-friendly Travel",
-      url:"family-trip-france"
+      url: "family-trip-france"
     }, {
 
       rasm: "/Cover-photo-Group-Travel-3-jpg.webp",
       title: 'Group Travel',
-      url:"group-travel"
+      url: "group-travel"
     }, {
 
       rasm: "/van-gogh-carrieres-lumieres-le-baux-provence-jameswrodriguez.jpg",
       title: 'History & Culture',
-      url:"history-culture"
+      url: "history-culture"
     }, {
 
       rasm: "/couple-drink-wine-paris-france-shutterstock.jpg",
       title: 'Honeymoons & Romance',
-      url:"honeymoons-romance"
+      url: "honeymoons-romance"
     }, {
 
       rasm: "/paris-car-self-drive.jpg",
       title: 'Self-Drive Trips & Tours',
-      url:"self-drive-trips-tours"
+      url: "self-drive-trips-tours"
     }, {
       rasm: "/Val-Thorens_skiing.jpg",
       title: 'Skiing & Adventure',
-      url:"skiing-adventure"
+      url: "skiing-adventure"
     }, {
 
       rasm: "/Wellness-spa.jpg",
       title: 'Wellness & Relaxation',
-      url:"wellness-relaxation-france"
+      url: "wellness-relaxation-france"
     }, {
 
       rasm: "/vineyard-couple-romance-wine-shutterstock.jpg",
       title: 'Wine & Food',
-      url:"wine-food-tours-2"
+      url: "wine-food-tours-2"
     }
 
   ]
@@ -93,7 +102,7 @@ function TravelIdeas() {
                 className="absolute w-[80%] mx-auto text-center bottom-4 left-1/2 transform -translate-x-1/2 bg-white/60 py-2 px-8 rounded-lg text-[#1b3154] whitespace-nowrap"
 
               >
-                { text.title}
+                {text.title}
               </Link>
             </div>
           ))}
@@ -105,17 +114,37 @@ function TravelIdeas() {
             What Our Clients Are Saying
           </h2>
         </div>
-        <div className='w-full max-w-3xl relative mx-auto'>
+        <div className='w-full max-w-3xl relative mx-auto pb-4'>
+          {/* Custom arrows */}
+          <button
+            ref={prevRef}
+            className="absolute top-[60%] left-[-100px] z-10 text-[#c2ac57] text-xl"
+          >
+            <FaChevronLeft />
+          </button>
+          <button
+            ref={nextRef}
+            className="absolute top-[60%] right-[-100px] z-10 text-[#c2ac57] text-xl"
+          >
+            <FaChevronRight />
+          </button>
           <Swiper
             modules={[Navigation, Autoplay]}
-            navigation={true}
             autoplay={{ delay: 5000, disableOnInteraction: false }}
             spaceBetween={30}
             slidesPerView={1}
             loop={true}
+            navigation={{
+              prevEl: prevRef.current,
+              nextEl: nextRef.current,
+            }}
+            onBeforeInit={(swiper) => {
+              swiper.params.navigation.prevEl = prevRef.current;
+              swiper.params.navigation.nextEl = nextRef.current;
+            }}
           >
             {reviewers?.map((item, index) => (
-              <SwiperSlide key={index}>
+              <SwiperSlide key={index} className="w-[400px]">
                 <div className='text-center px-6 py-8'>
                   <h3 className='text-lg font-semibold text-[#1b3154]'>{item.name}</h3>
                   <p className='text-sm text-gray-500 mb-2'>{item.data}</p>
@@ -125,18 +154,39 @@ function TravelIdeas() {
                     ))}
                     <FaCheckCircle className='text-blue-600 ml-2' />
                   </div>
-                  <p className='text-[15px] leading-relaxed text-[#1b3154] max-w-xl mx-auto'>
-                    {item.review}
-                  </p>
+                  <div className='max-w-xl mx-auto'>
+                    <p
+                      className={`text-[15px] leading-relaxed text-[#1b3154] 
+                        ${expanded[index] ? '' : 'line-clamp-3'
+                        }`}
+                    >
+                      {item.review}
+                    </p>
+                    {item.review.length > 150 && (
+                      <button
+                        onClick={() => toggleExpand(index)}
+                        className='mt-2 text-sm text-blue-600 underline hover:text-blue-800 transition'
+                      >
+                        {expanded[index] ? 'Read less' : 'Read more'}
+                      </button>
+                    )}
+                  </div>
                 </div>
               </SwiperSlide>
 
             )
             )}
           </Swiper>
-        </div>
-        <div className='text-center text-sm'>
-          <strong>Google</strong> rating score: <span className='font-bold'>4.9</span> of 5, based on <span className='font-bold underline cursor-pointer'><a href="https://www.google.com/search?hl=en-UZ&gl=uz&q=French+Side+Travel,+49+Cr+Mirabeau,+13100+Aix-en-Provence,+France&ludocid=532799359941301942&lsig=AB86z5Upvh70KTA4BtNjP-rQs1p5#lrd=0x12c98da84737b347:0x764e231e9db56b6,1">162 reviews</a></span>
+          <div className="flex justify-center">
+            <span className="nowrap"><strong>Google</strong> rating score: </span>
+            <span className="nowrap"><strong>4.9</strong>of 5,</span>
+            <span className="">
+              based on
+              <strong className="underline">
+                <a href="https://admin.trustindex.io/widget/logClick?pub_widget_id=ee2a1a21987a5749535687a253c" target="_blank" rel="noopener">163 reviews</a>
+              </strong>
+            </span>
+          </div>
         </div>
       </section>
     </main>
