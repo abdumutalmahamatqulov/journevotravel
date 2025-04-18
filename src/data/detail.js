@@ -91,3 +91,29 @@ export const images = [
   }
 
 ]
+export const languages = [
+  {
+    code: "en",
+    name: "English",
+    shortLabel: "EN",
+    flag: "https://flagcdn.com/w40/us.png",
+  },
+  {
+    code: "uz",
+    name: "Uzbekcha",
+    shortLabel: "UZ",
+    flag: "https://flagcdn.com/w40/uz.png",
+  },
+  {
+    code: "ru",
+    name: "Русский",
+    shortLabel: "RU",
+    flag: "https://flagcdn.com/w40/ru.png",
+  },
+  {
+    code: "fr",
+    name: "Français",
+    shortLabel: "FR",
+    flag: "https://flagcdn.com/w40/fr.png",
+  },
+];
