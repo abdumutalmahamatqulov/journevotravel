@@ -14,6 +14,8 @@ import Contact from './components/about/contact/Contact';
 import TravelIdeas from './components/travelideas/TravelIdeas';
 import { languages } from './data/detail';
 import AboutUs from './components/about/about/AboutUs';
+import FAQ from './components/about/faq/FAQ';
+import ScrollToTop from './components/ScrollToTop';
 function App() {
   const [selectedLang, setSelectedLang] = useState("en");
 
@@ -58,6 +60,7 @@ function App() {
         </div>
       </div>
       <BrowserRouter>
+      <ScrollToTop/>
         <Routes>
           <Route element={<Layout />}>
             <Route index element={<HomePage />} />
@@ -67,6 +70,7 @@ function App() {
             <Route path='travel-ideas/group-travel' element={<GroupTravel />} />
             <Route path='travel-ideas/history-culture' element={<HistoryCulture />} />
             <Route path='about' element={<AboutUs/>}/>
+            <Route path='faq' element={<FAQ />} />
             <Route path='contact' element={<Contact />} />
           </Route>
         </Routes>

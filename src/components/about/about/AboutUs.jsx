@@ -7,17 +7,17 @@ function AboutUs() {
                 style={{
                     backgroundImage: 'url("/vineyard-couple-wine-shutterstock.jpg")',
                     backgroundSize: 'cover',
-                    backgroundPosition: 'top',
+                    backgroundPosition: 'center 15%',
                     backgroundRepeat: 'no-repeat',
                 }}
-                className="relative h-[85vh]  clip-path: inset(20% 0 0 0) flex flex-col items-center justify-start  text-center">
+                className="relative h-[75vh] flex flex-col items-center justify-start  text-center">
                 <div className="absolute opacity   bottom-0 left-0 w-full h-[70%] bg-gradient-hero"></div>
-                <div className='flex flex-col items-center justify-start min-h-screen mt-[235px]'>
+                <div className='flex flex-col items-center justify-start  mt-[235px]'>
                     <h1 className='text-5xl font-serif text-center text-[rgba(255,255,255,0.9)] relative z-10 text-shadow'>About Us</h1>
                 </div>
             </section>
             {/* page */}
-            <section className="bg-white py-6 w-full mx-auto ">
+            <section className="bg-white w-full mx-auto ">
                 <div className='justify-center flex max-w-[720px] mx-auto items-center'>
                     <div>
                         <h3
@@ -289,7 +289,7 @@ function AboutUs() {
                 </div>
             </section>
         </main>
-    )
+    )                   
 }
 
 export default AboutUs

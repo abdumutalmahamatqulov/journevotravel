@@ -85,10 +85,10 @@ function Contact() {
                 style={{
                     backgroundImage: 'url("/champagne-glasses-cheers-paris-eiffel-tower-romantic-shutterstock-paid.jpg")',
                     backgroundSize: 'cover',
-                    backgroundPosition: 'top',
+                    backgroundPosition: 'center 22%',
                     backgroundRepeat: 'no-repeat'
                 }}
-                className="relative h-[680px] flex flex-col items-center justify-start  text-center">
+                className="relative h-[68vh] flex flex-col items-center justify-start  text-center">
                 <div className="absolute opacity   bottom-0 left-0 w-full h-[70%] bg-gradient-hero"></div>
                 <div className='flex flex-col items-center justify-start min-h-screen mt-[235px]'>
                     <h1 className='text-5xl font-serif text-center text-[rgba(255,255,255,0.9)] relative z-10 text-shadow'>Contact</h1>
