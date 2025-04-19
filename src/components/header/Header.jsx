@@ -105,28 +105,27 @@ const Navbar = () => {
                 width: '100%',
                 background: '#fff',
                 padding: '0 40px',
-                height: '70px',
+                height: 'auto',
                 alignItems: 'center',
-                // justifyContent: 'space-between',
+                justifyContent: 'space-between',
                 boxShadow: '0 2px 4px rgba(0,0,0,0.05)',
             }}
         >
 
             <div
                 style={{
-                    fontFamily: 'Montserrat, sans-serif !important',
                     maxWidth: '1240px',
-                    fontSize: '16px',
-                    padding: '23px 0 0 20px',
                     margin: '0 auto',
                     display: 'flex',
                     alignItems: 'center',
-                    justifyContent: 'center',
+                    justifyContent: 'space-between',
+                    height: '100%',
+                    gap: '30px'
                 }}
             >
 
                 {/* Logo */}
-                <div className=''>
+                <div className='px-5'>
                     <Link to='/'>
                         <img src="/frenchside-logo.svg" alt="Logo" style={{ height: 40 }} />
                     </Link>
@@ -163,9 +162,9 @@ const Navbar = () => {
                             <Link
                                 to='/destinations'
 
-                                    >Destinations</Link>    <DownOutlined />
-                                </div>
-                            </Dropdown>
+                            >Destinations</Link>    <DownOutlined />
+                        </div>
+                    </Dropdown>
 
                     <Dropdown
                         overlay={menuTravelTypes}
@@ -185,40 +184,40 @@ const Navbar = () => {
                             <Link
                                 to='/travel-ideas'
 
-                                    >Travel Types</Link>    <DownOutlined />
-                                </div>
-                            </Dropdown>
-
-                            <Dropdown
-                                overlay={menuAboutUs}
-                                trigger={['hover']}
-                                className='nav-item'
-                                onVisibleChange={(visible) => setOpenDropdown(visible ? 'about' : null)}
-                            >
-                                <div
-                                    style={{
-                                        padding: '8px 12px',
-                                        borderRadius: '6px',
-                                        backgroundColor: openDropdown === 'about' ? '#132c52' : 'transparent',
-                                        color: openDropdown === 'about' ? 'white' : '#0b2941',
-                                        transition: 'all 0.2s',
-                                    }}
-                                >
-                                    <Link
-
-                                        to='/about'
-
-                                    >About Us</Link>    <DownOutlined />
-                                </div>
-                            </Dropdown>
-                        <Link to="/blog/" className="hover:underline travel-inspiration-link nav-item">Travel Inspiration</Link>
-                        </ul>
-
-                        <div className='nav-item'>
-                            <PhoneOutlined />
-                            <span style={{ fontWeight: 600 }}>+1 646 809 1975</span>
+                            >Travel Types</Link>    <DownOutlined />
                         </div>
+                    </Dropdown>
+
+                    <Dropdown
+                        overlay={menuAboutUs}
+                        trigger={['hover']}
+                        className='nav-item'
+                        onVisibleChange={(visible) => setOpenDropdown(visible ? 'about' : null)}
+                    >
+                        <div
+                            style={{
+                                padding: '8px 12px',
+                                borderRadius: '6px',
+                                backgroundColor: openDropdown === 'about' ? '#132c52' : 'transparent',
+                                color: openDropdown === 'about' ? 'white' : '#0b2941',
+                                transition: 'all 0.2s',
+                            }}
+                        >
+                            <Link
+
+                                to='/about'
+
+                            >About Us</Link>    <DownOutlined />
+                        </div>
+                    </Dropdown>
+
+                    <Link to="/blog/" className="hover:underline travel-inspiration-link nav-item">Travel Inspiration</Link>
+
+                    <div className='nav-item'>
+                        <PhoneOutlined />
+                        <span style={{ fontWeight: 600 }}>+1 646 809 1975</span>
                     </div>
+
                     <Button
                         type="primary"
                         onMouseEnter={() => setTextColor('#c2ac57')}
@@ -279,7 +278,6 @@ const Navbar = () => {
                             >
                                 <Link
                                     to='/destinations'
-                                    style={{color: "#1B3154"}}
 
                                 >Destinations</Link>    <DownOutlined />
                             </div>
@@ -302,7 +300,6 @@ const Navbar = () => {
                             >
                                 <Link
                                     to='/travel-ideas'
-                                    style={{color: "#1B3154"}}
 
                                 >Travel Types</Link>    <DownOutlined />
                             </div>
@@ -319,12 +316,12 @@ const Navbar = () => {
                                     padding: '8px 12px',
                                     borderRadius: '6px',
                                     backgroundColor: openDropdown === 'about' ? '#132c52' : 'transparent',
-                                    color: openDropdown === 'about' ? 'white' : '#1B3154',
+                                    color: openDropdown === 'about' ? 'white' : '#0b2941',
                                     transition: 'all 0.2s',
                                 }}
                             >
                                 <Link
-                                     style={{color: "#1B3154"}}
+
                                     to='/about'
 
                                 >About Us</Link>    <DownOutlined />
@@ -348,7 +345,6 @@ const Navbar = () => {
                                     borderRadius: '20px',
                                     fontWeight: 500,
                                     color: textColor,
-                                    padding: 15
                                 }}
                             >
                                 Customize Your Trip
