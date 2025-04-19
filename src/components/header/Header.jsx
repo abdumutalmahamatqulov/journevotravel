@@ -115,7 +115,10 @@ const Navbar = () => {
                 background: '#fff',
                 padding: '0 40px',
                 height: 'auto',
+<<<<<<< HEAD
 >>>>>>> 34a16cf (header detailks changed)
+=======
+>>>>>>> 34a16cf5fc5b6126889b61f17c6a81de5bd6aaa5
                 alignItems: 'center',
                 justifyContent: 'space-between',
                 boxShadow: '0 2px 4px rgba(0,0,0,0.05)',
@@ -148,9 +151,13 @@ const Navbar = () => {
                         display: 'flex',
                         alignItems: 'center',
 <<<<<<< HEAD
+<<<<<<< HEAD
                         gap: '35px',
 =======
 >>>>>>> b24f212 (header changed)
+=======
+                        gap: '30px',
+>>>>>>> 34a16cf5fc5b6126889b61f17c6a81de5bd6aaa5
                         fontSize: '16px',
                         flexWrap: 'wrap',
 
@@ -162,6 +169,7 @@ const Navbar = () => {
                         overlay={menuDestinations}
                         trigger={['hover']}
                         onVisibleChange={(visible) => setOpenDropdown(visible ? 'destinations' : null)}
+<<<<<<< HEAD
                         className='nav-item text-[#1B3154]'
 =======
                     <div
@@ -175,11 +183,18 @@ const Navbar = () => {
                             position: 'relative',
                         }}
 >>>>>>> b24f212 (header changed)
+=======
+                        className='nav-item'
+>>>>>>> 34a16cf5fc5b6126889b61f17c6a81de5bd6aaa5
                     >
                         <ul
                             style={{
 <<<<<<< HEAD
+<<<<<<< HEAD
                                 padding: '2px 12px',
+=======
+                                padding: '8px 12px',
+>>>>>>> 34a16cf5fc5b6126889b61f17c6a81de5bd6aaa5
                                 borderRadius: '6px',
                                 backgroundColor: openDropdown === 'destinations' ? '#132c52' : 'transparent',
                                 color: openDropdown === 'destinations' ? 'white' : '#0b2941',
@@ -251,7 +266,7 @@ const Navbar = () => {
                     >
                         <div
                             style={{
-                                padding: '2px 5px',
+                                padding: '8px 12px',
                                 borderRadius: '6px',
                                 backgroundColor: openDropdown === 'travel-ideas' ? '#132c52' : 'transparent',
                                 color: openDropdown === 'travel-ideas' ? 'white' : '#0b2941',
