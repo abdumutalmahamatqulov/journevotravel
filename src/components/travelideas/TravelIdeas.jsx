@@ -65,26 +65,26 @@ function TravelIdeas() {
         style={{
           backgroundImage: 'url("/eiffel-tour-paris-france-tours.jpg")',
           backgroundSize: 'cover',
-          backgroundPosition: 'top',
+          backgroundPosition: 'center 18%',
           backgroundRepeat: 'no-repeat'
         }}
-        className="relative h-[680px] flex flex-col items-center justify-start  text-center">
+        className="relative h-[70vh] flex flex-col items-center justify-start  text-center">
         <div className="absolute opacity   bottom-0 left-0 w-full h-[70%] bg-gradient-hero"></div>
-        <div className='flex flex-col items-center justify-start min-h-screen mt-[235px]'>
+        <div className='flex flex-col items-center justify-start min-h-screen mt-[170px]'>
 
           <h1 className='text-5xl font-serif text-center text-[rgba(255,255,255,0.9)] relative z-10 text-shadow'>Travel-Types</h1>
-          <h3 className='text-2xl md:text-2xl text-center text-[rgba(255,255,255,0.8)] mb-4 max-w-5xl mx-auto leading-relaxed relative z-10'>French Side Travel offers handcrafted travel experiences all over France. <br /> How would you like to travel?
+          <h3 className='text-2xl md:text-2xl text-center text-[rgba(255,255,255,0.8)] mb-4 max-w-5xl mx-auto  relative z-10'>French Side Travel offers handcrafted travel experiences all over France. <br /> How would you like to travel?
           </h3>
           {/* <!-- callout button --> */}
           <div className=' p-3 w-full max-w-xs relative z-10'>
-            <a href="/customize-your-trip" className='inline-block bg-[#e8dcba] text-[#1b3154] py-2 px-12 rounded-full  text-xl transition-colors hover:text-white hover:bg-blue-900 duration-300 cursor-pointer'
+            <a href="/customize-your-trip" className='inline-block bg-[#e8dcba] text-[#1b3154] py-2 px-12 rounded-full  text-lg transition-colors hover:text-white hover:bg-blue-900 duration-300 cursor-pointer'
             >
               Customize My Trip
             </a>
           </div>
         </div>
       </section>
-      <section className="bg-[#1F3653] pt-[30px] w-full z-50 pb-16">
+      <section className="bg-[#1F3653] pt-[60px] w-full z-50 pb-16">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-[1240px] px-[20px] mx-auto">
           {images.map((text, index) => (
             <div
