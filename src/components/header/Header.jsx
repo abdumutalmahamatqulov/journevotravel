@@ -105,7 +105,7 @@ const Navbar = () => {
                 width: '100%',
                 background: '#fff',
                 padding: '0 40px',
-                height: '70px',
+                height: '90px',
                 alignItems: 'center',
                 justifyContent: 'space-between',
                 boxShadow: '0 2px 4px rgba(0,0,0,0.05)',
@@ -137,7 +137,7 @@ const Navbar = () => {
                     style={{
                         display: 'flex',
                         alignItems: 'center',
-                        gap: '30px',
+                        gap: '35px',
                         fontSize: '16px',
                         flexWrap: 'wrap',
 
@@ -148,11 +148,11 @@ const Navbar = () => {
                         overlay={menuDestinations}
                         trigger={['hover']}
                         onVisibleChange={(visible) => setOpenDropdown(visible ? 'destinations' : null)}
-                        className='nav-item'
+                        className='nav-item text-[#1B3154]'
                     >
                         <div
                             style={{
-                                padding: '8px 12px',
+                                padding: '2px 12px',
                                 borderRadius: '6px',
                                 backgroundColor: openDropdown === 'destinations' ? '#132c52' : 'transparent',
                                 color: openDropdown === 'destinations' ? 'white' : '#0b2941',
@@ -174,7 +174,7 @@ const Navbar = () => {
                     >
                         <div
                             style={{
-                                padding: '8px 12px',
+                                padding: '2px 5px',
                                 borderRadius: '6px',
                                 backgroundColor: openDropdown === 'travel-ideas' ? '#132c52' : 'transparent',
                                 color: openDropdown === 'travel-ideas' ? 'white' : '#0b2941',
@@ -278,6 +278,7 @@ const Navbar = () => {
                             >
                                 <Link
                                     to='/destinations'
+                                    style={{color: "#1B3154"}}
 
                                 >Destinations</Link>    <DownOutlined />
                             </div>
@@ -300,6 +301,7 @@ const Navbar = () => {
                             >
                                 <Link
                                     to='/travel-ideas'
+                                    style={{color: "#1B3154"}}
 
                                 >Travel Types</Link>    <DownOutlined />
                             </div>
@@ -316,12 +318,12 @@ const Navbar = () => {
                                     padding: '8px 12px',
                                     borderRadius: '6px',
                                     backgroundColor: openDropdown === 'about' ? '#132c52' : 'transparent',
-                                    color: openDropdown === 'about' ? 'white' : '#0b2941',
+                                    color: openDropdown === 'about' ? 'white' : '#1B3154',
                                     transition: 'all 0.2s',
                                 }}
                             >
                                 <Link
-
+                                     style={{color: "#1B3154"}}
                                     to='/about'
 
                                 >About Us</Link>    <DownOutlined />
@@ -345,6 +347,7 @@ const Navbar = () => {
                                     borderRadius: '20px',
                                     fontWeight: 500,
                                     color: textColor,
+                                    padding: 15
                                 }}
                             >
                                 Customize Your Trip
