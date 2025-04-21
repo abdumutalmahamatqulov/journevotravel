@@ -114,12 +114,12 @@ const Navbar = () => {
           activeDropdown === key ? 'max-h-[500px]' : 'max-h-0'
         }`}
       >
-        <div className="bg-[#1B3154] py-2 px-5">
+        <div className="bg-white py-2 px-5">
           {items.map(([subLabel, subPath]) => (
             <Link
               key={subPath}
               to={subPath}
-              className="block w-full text-white text-[15px] py-2 transition-colors hover:text-[#c2ac57]"
+              className="block w-full text-black text-[15px] py-2 transition-colors hover:text-[#c2ac57]"
               aria-label={`Navigate to ${subLabel}`}
               onClick={closeMobileMenu}
             >
