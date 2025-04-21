@@ -1,39 +1,9 @@
-import { Layout, Menu, Dropdown, Button } from 'antd';
-import { DownOutlined, PhoneOutlined, MenuOutlined, CloseOutlined } from '@ant-design/icons';
+import { useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
+import { DownOutlined, MenuOutlined, CloseOutlined, PhoneOutlined } from '@ant-design/icons';
+import { Menu, Dropdown } from 'antd';
 
-const { Header } = Layout;
-
-const menuStyle = {
-  backgroundColor: '#132c52',
-  padding: '3px 20px',
-  borderRadius: 0,
-  marginTop: 0,
-};
-
-const menuItemStyle = {
-  width: 230,
-  color: 'white',
-  fontSize: '15px',
-  padding: '8px 0',
-  transition: 'background 0.2s, color 0.2s',
-};
-
-const generateMenu = (items) => (
-  <Menu style={menuStyle}>
-    {items.map(([label, path]) => (
-      <Menu.Item
-        key={path}
-        style={menuItemStyle}
-        onMouseEnter={(e) => (e.currentTarget.style.color = '#c2ac57')}
-        onMouseLeave={(e) => (e.currentTarget.style.color = 'white')}
-      >
-        <Link to={path} style={{ color: 'inherit' }}>{label}</Link>
-      </Menu.Item>
-    ))}
-  </Menu>
-);
+const CONTACT_PHONE = '+1 646 809 1975';
 
 const destinations = [
   ['Alsace', '/destinations/alsace/'],
@@ -66,75 +36,104 @@ const aboutUs = [
   ['For Agencies & Operators', '/work-with-us/'],
 ];
 
+const generateMenu = (items) =>
+  useMemo(
+    () => (
+      <Menu className="bg-[#1B3154] py-[3px] px-5 rounded-none mt-0">
+        {items.map(([label, path]) => (
+          <Menu.Item
+            key={path}
+            className="w-[230px] text-white text-[15px] py-2 transition-colors hover:bg-transparent hover:!text-[#c2ac57]"
+          >
+            <Link to={path} className="text-inherit" aria-label={`Navigate to ${label}`}>
+              {label}
+            </Link>
+          </Menu.Item>
+        ))}
+      </Menu>
+    ),
+    [items]
+  );
+
 const Navbar = () => {
-  const [textColor, setTextColor] = useState('#fff');
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [hoveredItem, setHoveredItem] = useState(null);
-  const [isDropdownVisible, setDropdownVisible] = useState(null);
+  const [activeDropdown, setActiveDropdown] = useState(null);
 
   const toggleMobileMenu = () => setMobileMenuOpen(!isMobileMenuOpen);
 
   const renderNavItem = (label, path, key) => (
     <div
-      style={{
-        padding: '5px',
-        lineHeight: '1.2',
-        backgroundColor: hoveredItem === key || isDropdownVisible === key ? '#132c52' : 'transparent',
-        color: hoveredItem === key || isDropdownVisible === key ? 'white' : '#1B3154',
-        transition: 'all 0.2s',
-      }}
-      onMouseEnter={() => setHoveredItem(key)}
-      onMouseLeave={() => setHoveredItem(null)}
+      className={`px-1 leading-snug transition-all cursor-pointer ${
+        activeDropdown === key ? 'bg-[#1B3154] text-white' : 'text-[#1B3154]'
+      }`}
+      onMouseEnter={() => !isMobileMenuOpen && setActiveDropdown(key)}
+      onClick={() => isMobileMenuOpen && setActiveDropdown(activeDropdown === key ? null : key)}
+      role="button"
+      aria-expanded={activeDropdown === key}
+      aria-haspopup="true"
     >
-      <Link to={path} style={{ color: hoveredItem === key || isDropdownVisible === key ? 'white' : '#1B3154' }}>
+      <Link
+        to={path}
+        className={`${activeDropdown === key ? 'text-white' : 'text-[#1B3154]'}`}
+        aria-label={`${label} dropdown`}
+      >
+        {label} <DownOutlined />
+      </Link>
+    </div>
+  );
+
+  const renderAccordionItem = (label, items, key) => (
+    <div className="w-full">
+      <button
+        className={`w-full text-left px-[10px] py-[8px] text-[#1B3154] text-lg flex justify-between items-center ${
+          activeDropdown === key ? 'bg-[#1B3154] text-white' : ''
+        }`}
+        onClick={() => setActiveDropdown(activeDropdown === key ? null : key)}
+        aria-expanded={activeDropdown === key}
+        aria-controls={`accordion-${key}`}
+      >
         {label}
-      </Link>{' '}
-      <DownOutlined />
+        <DownOutlined
+          className={`transition-transform ${activeDropdown === key ? 'rotate-180' : ''}`}
+        />
+      </button>
+      <div
+        id={`accordion-${key}`}
+        className={`overflow-hidden transition-all duration-300 ${
+          activeDropdown === key ? 'max-h-[500px]' : 'max-h-0'
+        }`}
+      >
+        <div className="bg-[#1B3154] py-2 px-5">
+          {items.map(([subLabel, subPath]) => (
+            <Link
+              key={subPath}
+              to={subPath}
+              className="block w-full text-white text-[15px] py-2 transition-colors hover:text-[#c2ac57]"
+              aria-label={`Navigate to ${subLabel}`}
+            >
+              {subLabel}
+            </Link>
+          ))}
+        </div>
+      </div>
     </div>
   );
 
   return (
-    <Header
-      style={{
-        position: 'sticky',
-        top: 0,
-        zIndex: 1000,
-        width: '100%',
-        background: '#fff',
-        padding: '0 30px',
-        height: '90px',
-        display: 'flex',
-        alignItems: 'center',
-        boxShadow: '0 2px 4px rgba(0,0,0,0.05)',
-      }}
-    >
-      <div
-        style={{
-          maxWidth: '1240px',
-          margin: '0 auto',
-          width: '100%',
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-        }}
-      >
+    <header className="sticky top-0 z-[1000] w-full bg-white px-[30px] h-[90px] flex items-center shadow-sm">
+      <div className="max-w-[1240px] mx-auto w-full flex justify-between items-center">
+        {/* Logo */}
         <Link to="/">
-          <img src="/frenchside-logo.svg" alt="Logo" style={{ height: 40 }} />
+          <img src="/frenchside-logo.svg" alt="French Side Travel Logo" className="h-10" />
         </Link>
 
         {/* Desktop Navigation */}
-        <div
-          className="nav-links"
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: '30px',
-          }}
-        >
+        <nav className="hidden md:flex items-center gap-[30px]">
           <Dropdown
             overlay={generateMenu(destinations)}
             trigger={['hover']}
-            onVisibleChange={(visible) => setDropdownVisible(visible ? 'destinations' : null)}
+            onOpenChange={(visible) => setActiveDropdown(visible ? 'destinations' : null)}
+            className="px-[10px] py-[8px]"
           >
             {renderNavItem('Destinations', '/destinations', 'destinations')}
           </Dropdown>
@@ -142,7 +141,8 @@ const Navbar = () => {
           <Dropdown
             overlay={generateMenu(travelTypes)}
             trigger={['hover']}
-            onVisibleChange={(visible) => setDropdownVisible(visible ? 'travel-types' : null)}
+            onOpenChange={(visible) => setActiveDropdown(visible ? 'travel-types' : null)}
+            className="px-[10px] py-[8px]"
           >
             {renderNavItem('Travel Types', '/travel-ideas', 'travel-types')}
           </Dropdown>
@@ -150,99 +150,66 @@ const Navbar = () => {
           <Dropdown
             overlay={generateMenu(aboutUs)}
             trigger={['hover']}
-            onVisibleChange={(visible) => setDropdownVisible(visible ? 'about' : null)}
+            onOpenChange={(visible) => setActiveDropdown(visible ? 'about' : null)}
+            className="px-[10px] py-[8px]"
           >
             {renderNavItem('About Us', '/about', 'about')}
           </Dropdown>
 
-          <Link to="/blog/" style={{ color: '#1B3154', padding: '5px' }}>Travel Inspiration</Link>
+          <Link to="/blog/" className="text-[#1B3154] px-1">
+            Travel Inspiration
+          </Link>
 
-          <div style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
+          <div className="flex items-center gap-1">
+            {/* <PhoneOutlined className="text-[#1B3154]" /> */}
             <img src="public/call-button-art.svg" alt="" />
-            <span style={{ fontWeight: 700, color: '#1B3154' }}>+1 646 809 1975</span>
+            <span className="font-bold text-[#1B3154]">{CONTACT_PHONE}</span>
           </div>
 
-          <Button
-            type="primary"
-            onMouseEnter={() => setTextColor('#c2ac57')}
-            onMouseLeave={() => setTextColor('#fff')}
-            style={{
-              backgroundColor: '#132c52',
-              color: textColor,
-              fontWeight: 500,
-              padding: '5px 15px',
-            }}
+          <button
+            className="bg-[#1B3154] text-white font-medium px-4 py-2 rounded-lg hover:text-[#c2ac57] transition-colors"
           >
             Customize Your Trip
-          </Button>
-        </div>
+          </button>
+        </nav>
 
         {/* Mobile Menu Toggle */}
-        <div className="hamburger-icon" onClick={toggleMobileMenu}>
-          {isMobileMenuOpen ? (
-            <CloseOutlined style={{ fontSize: 24, color: '#132c52' }} />
-          ) : (
-            <MenuOutlined style={{ fontSize: 24, color: '#132c52' }} />
-          )}
-        </div>
+        <button
+          className="md:hidden text-[#1B3154] text-2xl"
+          onClick={toggleMobileMenu}
+          aria-label="Toggle menu"
+        >
+          {isMobileMenuOpen ? <CloseOutlined /> : <MenuOutlined />}
+        </button>
       </div>
 
       {/* Mobile Menu Content */}
-      {isMobileMenuOpen && (
-        <div
-          style={{
-            background: '#fff',
-            width: '100%',
-            transition: 'max-height 0.3s ease-in-out',
-            padding: '20px',
-          }}
-        >
-          <Dropdown
-            overlay={generateMenu(destinations)}
-            trigger={['click']}
-            onVisibleChange={(visible) => setDropdownVisible(visible ? 'destinations' : null)}
-          >
-            {renderNavItem('Destinations', '/destinations', 'destinations')}
-          </Dropdown>
+      <div
+        className={`md:hidden absolute top-[90px] left-0 right-0 bg-white px-5 py-4 space-y-3 max-h-[80vh] overflow-y-auto shadow-lg ${
+          isMobileMenuOpen ? 'block' : 'hidden'
+        }`}
+      >
+        {renderAccordionItem('Destinations', destinations, 'destinations')}
+        {renderAccordionItem('Travel Types', travelTypes, 'travel-types')}
+        {renderAccordionItem('About Us', aboutUs, 'about')}
 
-          <Dropdown
-            overlay={generateMenu(travelTypes)}
-            trigger={['click']}
-            onVisibleChange={(visible) => setDropdownVisible(visible ? 'travel-types' : null)}
-          >
-            {renderNavItem('Travel Types', '/travel-ideas', 'travel-types')}
-          </Dropdown>
+        <Link to="/blog/" className="block text-[#1B3154] my-2 text-lg">
+          Travel Inspiration
+        </Link>
 
-          <Dropdown
-            overlay={generateMenu(aboutUs)}
-            trigger={['click']}
-            onVisibleChange={(visible) => setDropdownVisible(visible ? 'about' : null)}
-          >
-            {renderNavItem('About Us', '/about', 'about')}
-          </Dropdown>
-
-          <Link to="/blog/" style={{ display: 'block', color: '#1B3154', margin: '10px 0' }}>Travel Inspiration</Link>
-
-          <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '10px' }}>
-            <img src="public/call-button-art.svg" alt="" />
-            <span style={{ fontWeight: 700, color: '#1B3154' }}>+1 646 809 1975</span>
-          </div>
-
-          <Button
-            type="primary"
-            block
-            style={{
-              backgroundColor: '#132c52',
-              color: '#fff',
-              fontWeight: 500,
-              borderRadius: 10
-            }}
-          className='rounded-2xl'>
-            Customize Your Trip
-          </Button>
+        <div className="flex items-center gap-2 mb-3">
+          {/* <PhoneOutlined className="text-[#1B3154]" /> */}
+          <img src="public/call-button-art.svg" alt="" />
+          <span className="font-bold text-[#1B3154] text-lg">{CONTACT_PHONE}</span>
         </div>
-      )}
-    </Header>
+
+        <button
+          className="bg-[#1B3154] text-white font-medium w-full py-3 rounded-[16px] hover:text-[#c2ac57] transition-colors cursor-pointer text-lg"
+        >
+          Customize Your Trip
+        </button>
+      </div>
+    </header>
   );
 };
 
