@@ -16,6 +16,7 @@ import { languages } from './data/detail';
 import AboutUs from './components/about/about/AboutUs';
 import FAQ from './components/about/faq/FAQ';
 import ScrollToTop from './components/ScrollToTop';
+import FamilyTripToMonaco from './components/traveltypes/tours/FamilyTripToMonaco';
 function App() {
   const [selectedLang, setSelectedLang] = useState("en");
 
@@ -67,6 +68,7 @@ function App() {
             <Route path="travels" element={<FrenchsidetravelPage />} />
             <Route path='travel-ideas' element={<TravelIdeas />} />
             <Route path='travel-ideas/family-trip-france' element={<FamilyTripFrance />} />
+            <Route path='tours/a-family-trip-to-monaco' element={<FamilyTripToMonaco/>}/>
             <Route path='travel-ideas/group-travel' element={<GroupTravel />} />
             <Route path='travel-ideas/history-culture' element={<HistoryCulture />} />
             <Route path='about' element={<AboutUs/>}/>
