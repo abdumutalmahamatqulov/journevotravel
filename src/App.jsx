@@ -21,7 +21,6 @@ function App() {
   const [selectedLang, setSelectedLang] = useState("en");
 
   const current = languages.find((lang) => lang.code === selectedLang);
-  console.log("Current=>",current);
 
   const handleChange = (code) => {
     setSelectedLang(code);

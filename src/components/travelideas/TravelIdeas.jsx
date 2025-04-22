@@ -17,7 +17,7 @@ function TravelIdeas() {
             [index]: !prev[index],
         }));
     };
-  const images = [
+  const   images = [
     {
       rasm: "/family-trip-normandy-france-cliffs-coast-etretat-shutterstock.jpg",
       title: "Family-friendly Travel",

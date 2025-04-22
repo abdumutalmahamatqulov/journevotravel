@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { buttonText, reviewers } from '../../../../data/detail'
-import { SwiperSlide ,Swiper} from 'swiper/react'
+import { SwiperSlide, Swiper } from 'swiper/react'
 import { FaCheckCircle, FaStar } from 'react-icons/fa'
 import { Autoplay, Navigation } from 'swiper/modules';
 import 'swiper/css';
@@ -9,17 +9,52 @@ import 'swiper/css/navigation';
 
 function FamilyTripFrance() {
     const images = [
-        "/Monaco-Feature-494x280.webp",
-        "/Untitled-design-12-494x280.webp",
-        "/theme-park-494x280.webp",
-        "/fragrance-making-lavender-perfume-494x280.webp",
-        "/porto-ajacchio-france-corsica-shutterstock-494x280.jpg",
-        "/versailles-palace-france-paris-shutterstock-494x280.jpg",
-        "/luberon-gordes-provence-shutterstock-494x280.jpg",
-        "/chamonix-alpes-france-shutterstock-494x280.jpg",
+        {
+            rasm: "/Monaco-Feature-494x280.webp",
+            title: "A Family Trip to Monoco",
+            url: "a-family-trip-to-monaco"
+        }, {
+            rasm: "/Untitled-design-12-494x280.webp",
+            title: 'Group Travel',
+            url: "group-travel"
+        },
+        {
+            rasm: "/theme-park-494x280.webp",
+            title: 'History & Culture',
+            url: "history-culture"
+        }, {
+            rasm: "/fragrance-making-lavender-perfume-494x280.webp",
+            title: 'Honeymoons & Romance',
+            url: "honeymoons-romance"
+        },
+        {
+            rasm: "/porto-ajacchio-france-corsica-shutterstock-494x280.jpg",
+            title: 'Self-Drive Trips & Tours',
+            url: "self-drive-trips-tours"
+        }
+        , {
+            rasm: "/versailles-palace-france-paris-shutterstock-494x280.jpg",
+            title: 'Skiing & Adventure',
+            url: "skiing-adventure"
+        },{
+            rasm: "/family-people-beach-shutterstock.jpg",
+            title: 'Wellness & Relaxation',
+            url: "wellness-relaxation-france"
+        }, {
+            rasm:"/luberon-gordes-provence-shutterstock-494x280.jpg",
+            title:  'Wellness & Relaxation',
+            url: "wine-food-tours-2"
+        }
+       ,{
+        rasm:  "/chamonix-alpes-france-shutterstock-494x280.jpg",
+        title:       'Wine & Food',
+        url: "wine-food-tours-2"
+       }
+       
+        
+      
 
     ]
-
     return (
         <main >
 
@@ -59,23 +94,24 @@ function FamilyTripFrance() {
                     </div>
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-[1240px] px-[20px] mx-auto">
-                    {images.map((rasm, index) => (
+                    {images.map((item, index) => (
                         <div
                             key={index}
                             className="relative bg-white rounded-lg overflow-hidden shadow-lg"
                         >
                             <img
-                                src={rasm}
+                                src={item.rasm}
                                 alt={`travel-${index}`}
                                 className="w-full h-64 object-cover"
                             />
 
                             <Link
-                                to={"/"}
+                                key={index}
+                                to={`/tours/${item.url.toLowerCase().replace(/\s+/g, '-').replace(/&/g, 'and')}`}
                                 className="absolute w-[80%] mx-auto text-center bottom-4 left-1/2 transform -translate-x-1/2 bg-white/60 py-2 px-8 rounded-lg text-[#1b3154] whitespace-nowrap"
 
                             >
-                                {buttonText[index]}
+                                {item.title}
                             </Link>
                         </div>
                     ))}
