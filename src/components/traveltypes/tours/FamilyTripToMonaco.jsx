@@ -281,10 +281,10 @@ function FamilyTripToMonaco() {
                                     >
                                         <div
                                             className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 
-             bg-white/85 w-[90%] sm:w-[80%] md:w-[70%] xl:w-[80%]
-             px-4 py-2 rounded-lg text-[#1b3154] 
-             text-sm sm:text-base md:text-lg font-medium 
-             text-center break-words"
+                                                    bg-white/85 w-[90%] sm:w-[80%] md:w-[70%] xl:w-[80%]
+                                                    px-4 py-2 rounded-lg text-[#1b3154] 
+                                                    text-sm sm:text-base md:text-lg font-medium 
+                                                    text-center break-words"
                                         >
                                             {hotel.title}
                                         </div>
