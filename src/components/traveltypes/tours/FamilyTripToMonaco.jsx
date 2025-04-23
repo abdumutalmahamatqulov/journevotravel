@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { itineraries } from '../../../data/detail'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
+import 'swiper/css/pagination';
+import { Pagination } from 'swiper/modules';
 
 function FamilyTripToMonaco() {
     const [activeDay, setActiveDay] = useState(itineraries[0]?.dayNumber || 1);
@@ -9,6 +11,16 @@ function FamilyTripToMonaco() {
     itineraries.forEach(item => {
         console.log("Day number:", item.dayNumber);
     });
+    const hotels = [
+        {
+            title: 'Hotel Monte-Carlo Bay',
+            image: '/Hotel-Monte-Carlo-Bay.webp',
+        },
+        {
+            title: 'Meridien Beach Plaza',
+            image: '/Meridien-Beach-Plaza.png',
+        },
+    ];
 
     return (
         <main>
@@ -156,7 +168,7 @@ function FamilyTripToMonaco() {
                                                                 {copy.description}
                                                             </p>
                                                             <p>
-                                                                <img src={copy.image} alt={`Day ${item?.dayNumber}-${index + 1}`} />
+                                                                <img className='w' src={copy.image} alt={`Day ${item?.dayNumber}-${index + 1}`} />
                                                             </p>
                                                         </div>
                                                     ))}
@@ -241,48 +253,47 @@ function FamilyTripToMonaco() {
 
                         <div className="absolute top-0 left-0 w-full h-[80px] rounded-b-[70%] bg-white z-[1]"></div>
                     </div>
-                    <div id='tour-hotels' >
-                        <h2 className='titles'>
+                    <div id="tour-hotels">
+                        <h2 className="titles">
                             <br />
                             Our Favorite Hotels
                         </h2>
-                        <div>
-                            <div>
-                                <div className='py-0 px-[50px] justify-center flex' >
-                                    <div className='p-[15px] h-[420px] w-[327px]'>
+                        <Swiper
+                            pagination={{ clickable: true }}
+                            modules={[Pagination]}
+                            className="max-w-[50%] mx-auto rounded-xl pb-6"
+                            breakpoints={{
+                                0: {
+                                    slidesPerView: 1,
+                                    spaceBetween: 10,
+                                },
+                                500: {
+                                    slidesPerView: 2,
+                                    spaceBetween: 20,
+                                },
+                            }}
+                        >
+                            {hotels.map((hotel, index) => (
+                                <SwiperSlide key={index}>
+                                    <div
+                                        className="relative h-[400px] min-h-[300px] bg-cover bg-center rounded-xl"
+                                        style={{ backgroundImage: `url(${hotel.image})` }}
+                                    >
                                         <div
-                                            className='relative h-full w-full bg-cover bg-center rounded-[8px]'
-                                            style={{
-                                                backgroundImage: 'url("/Hotel-Monte-Carlo-Bay.webp")',
-                                            }}
+                                            className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 
+             bg-white/85 w-[90%] sm:w-[80%] md:w-[70%] xl:w-[80%]
+             px-4 py-2 rounded-lg text-[#1b3154] 
+             text-sm sm:text-base md:text-lg font-medium 
+             text-center break-words"
                                         >
-
-
-                                            <div className='absolute w-[80%] mx-auto text-center top-1/2 left-1/2 transform -translate-x-1/2 bg-white/85 py-1 px-8 rounded-lg text-[#1b3154] whitespace-nowrap'>
-                                                <span>Hotel Monte-Carlo Bay</span>
-                                            </div>
+                                            {hotel.title}
                                         </div>
                                     </div>
-                                    <div className='p-[15px] h-[420px] w-[327px]'>
-                                        <div
-                                            className='relative h-full w-full bg-cover bg-center rounded-[8px]'
-                                            style={{
-                                                backgroundImage: 'url("/Meridien-Beach-Plaza.png")',
-                                            }}
-                                        >
-
-                                            <div className='absolute w-[80%] mx-auto text-center top-1/2 left-1/2 transform -translate-x-1/2 bg-white/85 py-1 px-8 rounded-lg text-[#1b3154] whitespace-nowrap'>
-                                                <span>Hotel Monte-Carlo Bay</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            {/* <ul className='slick-dots'>
-                            <li></li>
-                        </ul> */}
-                        </div>
+                                </SwiperSlide>
+                            ))}
+                        </Swiper>
                     </div>
+
                     <p className='bg-white'></p>
                 </div>
             </section>

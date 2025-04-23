@@ -235,7 +235,8 @@
 }
 
 .copy {
-  width: 618px;
+  max-width: 618px;
+  width: 100%;
   display: block;
   font-family: 'Montserrat', sans-serif !important;
   font-size: 16px;
@@ -332,16 +333,11 @@ h4 {
 
 .titles {
   font-family: 'Mate', serif !important;
-  display: block;
-  margin-block-start: 0.83em;
-  margin-block-end: 0.83em;
-  margin-inline-start: 0px;
-  font-weight: 600;
   text-align: center;
-  margin-inline-end: 0px;
   font-size: 32px;
-  color: #1b3154;
+  font-weight: 600;
   margin: 26.56px 0;
+  color: #1b3154;
 }
 
 #tour-hotels {
