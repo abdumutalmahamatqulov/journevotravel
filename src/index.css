@@ -9,8 +9,7 @@
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-.swiper-button-prev,
-.swiper-button-next {
+.swiper-button-prev, .swiper-button-next {
   color: #c2ac57 !important;
 }
 
@@ -93,7 +92,7 @@
   }
 
   .nav-links.open .trav-link {
-    display: block;
+    display: block; 
   }
 
   .nav-links .trav-link {
