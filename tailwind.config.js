@@ -18,7 +18,7 @@ module.exports = {
     extend: {
       fontFamily: {
         'sans': ['Montserrat', 'sans-serif'],
-        'serif': ['Merriweather', 'serif'],
+        'serif': ['Mate', 'serif'],
         'mono': ['Menlo', 'monospace'],
       }
     },

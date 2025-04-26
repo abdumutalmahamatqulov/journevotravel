@@ -20,66 +20,79 @@ const Footer = () => {
         color: '#c2ac57',
     };
     return (
-        <footer className="bg-[#1F3653] text-white">
-            <div className="max-w-[1240px] px-[20px] mx-auto w-full mt-8">
-                <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[minmax(300px,2fr)_1fr_1fr_1fr] gap-10">
+        <footer className="bg-[#1F3653] text-white font-sans w-full">
+            <div className="max-w-[1240px] py-8 mx-auto text-base">
+                <div className=" justify-center flex flex-col lg:flex-row px-[25.975px] gap-[80px] font-sans text-base">
                     {/* Subscription Section */}
-                    <div className="md:mr-[80px]">
-                        <h1 className="text-3xl font-bold mb-3 leading-tight">{translations[language]?.title || translations?.en?.title}</h1>
-                        <p className="text-gray-300 mb-5 text-lg">{translations[language]?.des || translations?.en?.des}</p>
-                        <div className="flex gap-2">
-                            <input type="text" placeholder="firt name" className="p-2 rounded w-1/2 text-black text-xl bg-white" />
-                            <input type="text" placeholder="last name" className="p-2 rounded w-1/2 text-black text-xl bg-white" />
+                    <div className="">
+                        <h1 className="text-[32px] font-bold mt-[15px] leading-tight md:justify-start">{translations[language]?.title || translations?.en?.title}</h1>
+                        <p className="text-gray-300 mb-4 text-[16px] md:justify-start flex justify-center">{translations[language]?.des || translations?.en?.des}</p>
+                        <div className="text-base font-serif pb-[11.5px] flex flex-col justify-between">
+                            <div className="flex w-full">
+                                <input type="text" placeholder="firt name" className="p-2 mb-2 mr-[7.675px]  w-full rounded text-black text-lg bg-white" />
+                                <input type="text" placeholder="last name" className="p-2 mb-2 rounded w-full text-black text-lg bg-white" />
+                            </div>
+                            <input
+                                type="email"
+                                placeholder="email address"
+                                className="p-2 mb-2  mx-auto w-full rounded text-black text-lg bg-white"
+                            />
+                            <div className="mx-auto xl:ml-0 flex justify-start">
+                                <input
+                                    type="submit"
+                                    value="Subscribe"
+                                    name="subscribe"
+                                    className="bg-neutral-400 hover:bg-[#AAAAAA] text-white w-full px-[26px] py-[6px] rounded transition-all duration-300"
+                                />
+                            </div>
                         </div>
-                        <input type="text" placeholder="email address" className="p-3 mt-3 w-full max-w-full rounded text-black text-xl bg-white" />
-                        <button className="bg-neutral-400 hover:bg-neutral-500 text-white px-8 py-3 text-xl rounded mt-4 font-semibold transition-all duration-300">
-                            Subscribe
-                        </button>
                     </div>
-                    {/* Destinations */}
-                    <div className="md:col-span-1">
-                        <h3 className="font-bold text-2xl mb-4">Destinations</h3>
-                        <ul className="text-gray-300 text-lg ">
-                            {county?.map((item) => (
-                                <li key={item}><a href="" className="hover:text-[#c2ac57] transition-all duration-300">{item}</a></li>
-                            ))}
-                        </ul>
-                    </div>
+                    <div className="flex flex-col max-w-[700px] mx-auto gap-8 md:flex-row hidden sm:flex">
+                        {/* Destinations */}
+                        <div className="md:col-span-1 whitespace-nowrap gap-2">
+                            <h3 className="font-serif text-xl mb-4 flex justify-center md:justify-start">Destinations</h3>
+                            <ul className="text-gray-300 text-[16px] ">
+                                {county?.map((item) => (
+                                    <li key={item}><a href="" className="hover:text-[#c2ac57] transition-all duration-300 justify-center flex md:justify-start">{item}</a></li>
+                                ))}
+                            </ul>
+                        </div>
 
-                    {/* Types of Trips */}
-                    <div className="md:col-span-1">
-                        <h3 className="font-bold text-2xl mb-4">Types of Trips</h3>
-                        <ul className="text-gray-300 text-lg">
-                            {place?.map((item) => (
-                                <li key={item}><a href="" className="hover:text-[#c2ac57] transition-all duration-300">{item}</a></li>
-                            ))}
-                        </ul>
-                    </div>
+                        {/* Types of Trips */}
+                        <div className="md:col-span-1 whitespace-nowrap gap-2">
+                            <h3 className="font-serif text-xl mb-4 flex justify-center md:justify-start">Types of Trips</h3>
+                            <ul className="text-gray-300 text-[16px]">
+                                {place?.map((item) => (
+                                    <li key={item}><a href="" className="hover:text-[#c2ac57] transition-all duration-300 flex justify-center md:justify-start">{item}</a></li>
+                                ))}
+                            </ul>
+                        </div>
 
-                    {/* About Us */}
-                    <div className="md:col-span-1">
-                        <h3 className="font-bold text-2xl mb-4">About Us</h3>
-                        <ul className="text-gray-300 text-lg">
-                            {career?.map((item) => (
-                                <li key={item}><a href="" className="hover:text-[#c2ac57] transition-all duration-300">{item}</a></li>
-                            ))}
-                        </ul>
+                        {/* About Us */}
+                        <div className="md:col-span-1 whitespace-nowrap gap-2">
+                            <h3 className="font-serif text-xl mb-4 flex justify-center md:justify-start">About Us</h3>
+                            <ul className="text-gray-300 text-[16px]">
+                                {career?.map((item) => (
+                                    <li key={item}><a href="" className="hover:text-[#c2ac57] transition-all duration-300 flex justify-center md:justify-start">{item}</a></li>
+                                ))}
+                            </ul>
+                        </div>
                     </div>
                 </div>
                 {/* Social Media Icons */}
-                <div className="flex justify-center gap-12 mt-12">
+                <div className="flex justify-center gap-10 mt-6 font-sans">
                     <a href="https://www.facebook.com/FrenchSideTravel/" target="_blank" rel="noopener noreferrer">
-                        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="Facebook" className="w-20 h-14 text-white" style={{ filter: 'brightness(0) invert(1)' }} />
+                        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="Facebook" className="w-16 h-12 text-white" style={{ filter: 'brightness(0) invert(1)' }} />
                     </a>
                     <a href="https://www.youtube.com/channel/UCAlPXB2DuWXX49Fx2pEUppQ" target="_blank" rel="noopener noreferrer">
-                        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/youtube.svg" alt="YouTube" className="w-20 h-14 text-white" style={{ filter: 'brightness(0) invert(1)' }} />
+                        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/youtube.svg" alt="YouTube" className="w-16 h-12 text-white" style={{ filter: 'brightness(0) invert(1)' }} />
                     </a>
                     <a href="https://www.instagram.com/frenchsidetravel/" target="_blank" rel="noopener noreferrer">
-                        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram" className="w-20 h-14 text-white" style={{ filter: 'brightness(0) invert(1)' }} />
+                        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram" className="w-16 h-12 text-white" style={{ filter: 'brightness(0) invert(1)' }} />
                     </a>
                 </div>
                 {/* Notice */}
-                <div className="flex justify-center mt-12 mb-10">
+                <div className="flex justify-center mt-12 mb-4">
                     <Link
                         target="_blank"
                         style={hovered ? linkHoverStyle : linkStyle}

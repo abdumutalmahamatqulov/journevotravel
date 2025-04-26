@@ -93,6 +93,7 @@ const Navbar = () => {
     </div>
   );
 
+
   const renderAccordionItem = (label, items, key) => (
     <div className="w-full border-b border-gray-200 last:border-b-0">
       <button
@@ -132,7 +133,7 @@ const Navbar = () => {
   );
 
   return (
-    <header className="sticky top-0 pt-[23px] z-[1000] w-full bg-white px-4  lg:px-[20px] h-[90px] flex items-center shadow-sm">
+    <header className="sticky top-0 z-[1000] w-full bg-white px-4 lg:px-[30px] h-[70px] flex items-center shadow-sm">
       <div className="w-full max-w-[1250px] mx-auto flex justify-between items-center">
         {/* Logo */}
         <Link to="/" onClick={closeMobileMenu}>
@@ -144,13 +145,13 @@ const Navbar = () => {
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden lg:flex items-center xl:gap-[30px]">
+        <nav className="hidden lg:flex items-center gap-3 xl:gap-[30px]">
           <Dropdown
             overlay={generateMenu(destinations)}
             trigger={['hover']}
             onOpenChange={(visible) => setActiveDropdown(visible ? 'destinations' : null)}
             overlayClassName="dropdown-overlay"
-            className='pt-[8px] pr-6 pb-2 pl-2'
+            className='py-[5px] px-[5px]'
           >
             {renderNavItem('Destinations', '/destinations', 'destinations')}
           </Dropdown>
@@ -159,7 +160,7 @@ const Navbar = () => {
             overlay={generateMenu(travelTypes)}
             trigger={['hover']}
             onOpenChange={(visible) => setActiveDropdown(visible ? 'travel-types' : null)}
-            className='pt-[8px] pr-6 pb-2 pl-2'
+            className='py-[5px] px-[5px]'
             overlayClassName="dropdown-overlay"
           >
             {renderNavItem('Travel Types', '/travel-ideas', 'travel-types')}
@@ -169,7 +170,7 @@ const Navbar = () => {
             overlay={generateMenu(aboutUs)}
             trigger={['hover']}
             onOpenChange={(visible) => setActiveDropdown(visible ? 'about' : null)}
-            className='pt-[8px] pr-6 pb-2 pl-2'
+            className='py-[5px] px-[5px]'
             overlayClassName="dropdown-overlay"
           >
             {renderNavItem('About Us', '/about', 'about')}
@@ -185,17 +186,18 @@ const Navbar = () => {
 
           {/* Phone Section with Modal */}
           <div 
-            className="relative flex items-center gap-2 mt-0 mr-0 mb-0 ml-[22px] p-2 font-[16px]"
+            className="relative flex items-center gap-2 ml-2"
             onMouseEnter={() => setModalVisible(true)}
             onMouseLeave={() => setModalVisible(false)}
           >
-            <img src="/phone-call.png" alt="Phone Icon" className='h-6 w-6 text-[#1b3154]'/>
+            <img src="/call-button-art.svg" alt="Phone Icon" />
             <a 
               href={`tel:${CONTACT_PHONE.replace(/\D/g, '')}`} 
               className="font-bold text-[#1B3154] whitespace-nowrap text-sm xl:text-base hover:text-[#c2ac57]"
             >
               {CONTACT_PHONE}
             </a>
+
 
             {/* Modal */}
             {isModalVisible && (
@@ -220,13 +222,13 @@ const Navbar = () => {
             )}
           </div>
 
-        </nav>
           <Link 
             to="/customize-your-trip" 
-            className="bg-[#1B3154] inline-block py-2 px-[28.8px] text-white font-medium mt-0 mr-0 mb-0 ml-[22.4px] rounded-[32px] xl:px-4 xl:py-2 hover:text-[#c2ac57] transition-colors whitespace-nowrap text-sm xl:text-base"
+            className="bg-[#1B3154] py-[5px] text-white font-medium px-[5px] rounded-[16px] xl:px-4 xl:py-2 hover:text-[#c2ac57] transition-colors whitespace-nowrap text-sm xl:text-base"
           >
             Customize Your Trip
           </Link>
+        </nav>
 
         {/* Mobile Menu Toggle */}
         <button
@@ -258,7 +260,7 @@ const Navbar = () => {
         </Link>
 
         <div className="flex items-center gap-3 px-4 py-4 border-b border-gray-200">
-          <img src="/phone-call.png" alt="" />
+          <img src="/call-button-art.svg" alt="Phone Icon" />
           <a 
             href={`tel:${CONTACT_PHONE.replace(/\D/g, '')}`} 
             className="font-bold text-[#1B3154] text-lg"
@@ -280,3 +282,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+// 

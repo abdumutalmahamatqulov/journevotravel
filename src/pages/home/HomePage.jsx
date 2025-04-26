@@ -50,8 +50,8 @@ const HomePage = () => {
                             type="video/mp4"
                         />
                     </video>
-                    <div className="absolute top-[40%] w-full flex flex-col items-center justify-center text-white drop-shadow-lg">
-                        <h1 className="text-3xl md:text-5xl mb-4 text-center text-shadow-lg">
+                    <div className="absolute top-[40%] w-full flex font-sans px-2 md:px-0 text-[16px] flex-col items-center justify-center text-white drop-shadow-lg">
+                        <h1 className="text-[34px] md:text-[50px] font-serif text-center text-shadow-lg">
                             Handcrafted Private Journeys in France
                         </h1>
                         <button
@@ -63,10 +63,10 @@ const HomePage = () => {
                     </div>
                 </div>
             </section>
-            <section className="bg-white text-[#1b3154] text-[16px] font-[Montserrat] p-[40px]">
+            <section className="bg-white text-[#1b3154] text-[16px] font-sans p-[40px]">
                 <div className="max-w-[1200px] mx-auto">
                     <h2 className="m-[26.56px] text-[32px] font-semibold leading-[1.2em] text-center text-[#1b3154] font-[Mate]">France Luxury Travel Experts</h2>
-                    <div className="box-border">
+                    <div className="font-sans text-[16px] px-[30px] py-0 ">
                         <h3 className="text-[#1b3154] text-[1em] font-medium justify-center grid">Unique Luxury Travel Experiences in France</h3>
                         <div className="mx-auto max-w-[720px] text-[1em] font-light m-4">
                             <p class="block my-[1em] mx-0 [unicode-bidi:isolate]">Planning your dream trip to France? French Side Travel crafts
@@ -76,10 +76,10 @@ const HomePage = () => {
                             <p class=" my-[1em] mx-0 [unicode-bidi:isolate] justify-center grid">Named Top Travel Advisor | France Specialist on Travel + Leisure’s 2025 A-List.</p>
                         </div>
                     </div>
-                    <div className="flex justify-center mt-[1.5em] px-20">
+                    <div className="flex justify-center mt-[1.5em] px-[28.8px] py-2">
                         <a
                             href=""
-                            className="box-border bg-[#1b3154] rounded-[32px] text-white px-[1.8em] py-[0.5em] no-underline"
+                            className="box-border text-[16px] bg-[#1b3154] rounded-[32px] text-white px-[1.8em] py-[0.5em] no-underline"
                         >
                             Speak to an Expert
                         </a>
@@ -87,21 +87,26 @@ const HomePage = () => {
 
                 </div>
             </section>
-            <section className="bg-white">
-                <div className='w-full max-w-3xl relative mx-auto pb-4'>
+            <section className="bg-white w-full">
+                <div className='w-full max-w-[1240px] relative mx-auto pb-4'>
                     {/* Custom arrows */}
                     <button
                         ref={prevRef}
-                        className="absolute top-[60%] left-[-100px] z-10 text-[#1b3154] text-xl"
+                        className="absolute top-1/2 left-2 sm:left-[10px] z-10 -translate-y-1/2 text-[#1b3154] text-xl"
                     >
                         <FaChevronLeft />
                     </button>
                     <button
                         ref={nextRef}
-                        className="absolute top-[60%] right-[-100px] z-10 text-[#1b3154] text-xl"
+                        className="absolute top-1/2 right-2 sm:right-[10px] z-10 text-[#1b3154] -translate-y-1/2 text-xl"
                     >
                         <FaChevronRight />
                     </button>
+                    <div className="justify-center flex text-[#1b3154]">
+                        <h2 className="my-[19.92px] mx-0 font-serif font-[700] text-2xl">
+                            What Our Clients Are Saying
+                        </h2>
+                    </div>
                     <Swiper
                         modules={[Navigation, Autoplay]}
                         autoplay={{ delay: 5000, disableOnInteraction: false }}
@@ -119,10 +124,10 @@ const HomePage = () => {
                     >
                         {reviewers?.map((item, index) => (
                             <SwiperSlide key={index} className="w-[400px]">
-                                <div className='text-center px-6 py-8'>
-                                    <h3 className='text-lg font-semibold text-[#1b3154]'>{item.name}</h3>
-                                    <p className='text-sm text-gray-500 mb-2'>{item.data}</p>
-                                    <div className='flex justify-center items-center mb-3'>
+                                <div className='text-center p-5'>
+                                    <h3 className='text-[14px] font-bold mb-[2px] text-[#1b3154]'>{item.name}</h3>
+                                    <p className='text-sm text-[#8a8a8a]'>{item.data}</p>
+                                    <div className='flex justify-center items-center mt-[15px] mb-[10px]'>
                                         {[...Array(5)].map((_, i) => (
                                             <FaStar key={i} className='text-[#c2ac57] mr-1' />
                                         ))}
@@ -138,7 +143,7 @@ const HomePage = () => {
                                         {item.review.length > 150 && (
                                             <button
                                                 onClick={() => toggleExpand(index)}
-                                                className='mt-2 text-sm text-blue-600 underline hover:text-blue-800 transition'
+                                                className='pt-[5px] font-sans opacity-50 text-sm text-[#1b3154]  hover:text-blue-800 transition'
                                             >
                                                 {expanded[index] ? 'Read less' : 'Read more'}
                                             </button>
@@ -150,7 +155,7 @@ const HomePage = () => {
                         )
                         )}
                     </Swiper>
-                    <div className="flex justify-center">
+                    <div className="flex justify-center mb-[15px]">
                         <span className="nowrap"><strong>Google</strong> rating score: </span>
                         <span className="nowrap"><strong>4.9</strong>of 5,</span>
                         <span className="">
@@ -163,22 +168,10 @@ const HomePage = () => {
                 </div>
             </section>
             {/* Why French Side Travel? */}
-            {/* <div className=" absolute top-0 left-0 w-full">
-                <svg
-                    className="w-full h-[100px] rotate-180"
-                    viewBox="0 0 1440 320"
-                    xmlns="http://www.w3.org/2000/svg"
-                >
-                    <path
-                        fill="#ffffff"
-                        fillOpacity="1"
-                        d="M0,160L60,165.3C120,171,240,181,360,192C480,203,600,213,720,213.3C840,213,960,203,1080,197.3C1200,192,1320,192,1380,192L1440,192L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z" // yuqoridagi path bilan bir xil bo‘lsa ham bo‘ladi
-                    ></path>
-                </svg>
-            </div> */}
-            <section className="bg-[#1b3154] py-16 text-white relative pt-[100px] overflow-hidden">
-                <div className="max-w-[1200px] mx-auto py-20 px-6 relative z-10">
-                    <h2 className="text-3xl font-bold text-center mb-12 font-[Mate]">
+            <section className="bg-[#1b3154] text-white relative  overflow-hidden">
+                <div className='absolute   left-1/2 transform -translate-x-1/2 bg-white w-[120%] -top-1 h-[70px] rounded-b-[50%] z-10'></div>
+                <div className="max-w-[1200px] mx-auto py-20 px-10 relative z-10">
+                    <h2 className="text-[32px] font-bold text-center my-[26.56px] font-[Mate]">
                         Why French Side Travel?
                     </h2>
 
@@ -195,11 +188,11 @@ const HomePage = () => {
                                     className=" w-[52px] h-[52px]"
                                 />
                             </div>
-                            <h4 className="text-[1.125em] font-[500] leading-[1.375em] my-[0.25em] mb-[0.5em] uppercase">
+                            <h4 className="text-[18px] font-[500] leading-[1.375em] mt-[4.5px] mb-[9px] uppercase">
                                 An Award-Winning Agency
                             </h4>
 
-                            <p className="font-light text-[1.125em] leading-[1.375em] h-[74.25px]">
+                            <p className="font-light text-[300] leading-[1.375em] h-[74.25px]">
                                 Recognized as a Top Travel Advisor for France
                             </p>
 
@@ -279,37 +272,53 @@ const HomePage = () => {
                 </div>
             </section>
             {/* Our Best Tour Selection */}
-            <section className="bg-white pt-[3em] pb-[3em] h-[607.5px]">
-                <div className="max-w-[1300px] mx-auto h-full">
+            <section className="bg-white pt-[3em] pb-[3em] h-[607.5px] w-full">
+                <div className="max-w-[1240px] p-5 mx-auto h-full">
                     <div className="flex justify-center w-full">
 
                         <h2 className="text-[#1b3154] font-[500]  my-[26.56px] text-[32px]">Our Best Tour Selection</h2>
                     </div>
-                    <div className="relative overflow-visible">
+                    <div className="relative px-10 overflow-visible">
                         {/* Custom arrows */}
                         <button
                             ref={prevRef}
-                            className="absolute top-[50%] left-[-50px] z-10 text-[#1b3154] text-xl"
+                            className="absolute  top-1/2 left-2 sm:left-[10px] z-10 text-[#1b3154] -translate-y-1/2 text-2xl"
                         >
                             <FaChevronLeft />
                         </button>
                         <button
                             ref={nextRef}
-                            className="absolute top-[50%] right-[-50px] z-10 text-[#1b3154] text-xl"
+                            className="absolute top-1/2  right-2 sm:right-[10px] z-10 text-[#1b3154] text-2xl -translate-y-1/2"
                         >
                             <FaChevronRight />
                         </button>
                         <Swiper
-                            modules={[Navigation, Autoplay]}
+                            modules={[Navigation]}
                             navigation={{
                                 prevEl: prevRef.current,
                                 nextEl: nextRef.current,
                             }}
                             autoplay={{ delay: 5000, disableOnInteraction: false }}
                             spaceBetween={5}
-                            slidesPerView={4}
-                            slidesPerGroup={4}
                             loop={true}
+                            breakpoints={{
+                                0: {
+                                    slidesPerView: 1,
+                                    slidesPerGroup: 1,
+                                },
+                                480: {
+                                    slidesPerView: 2,
+                                    slidesPerGroup: 2,
+                                },
+                                768: {
+                                    slidesPerView: 3,
+                                    slidesPerGroup: 3,
+                                },
+                                1024: {
+                                    slidesPerView: 4,
+                                    slidesPerGroup: 4,
+                                },
+                            }}
                             onBeforeInit={(swiper) => {
                                 swiper.params.navigation.prevEl = prevRef.current;
                                 swiper.params.navigation.nextEl = nextRef.current;
@@ -317,11 +326,11 @@ const HomePage = () => {
                         >
                             {images?.map((item, index) => (
                                 <SwiperSlide key={index}>
-                                    <div className='w-full h-auto p-[12px] relative bg-white rounded-lg shadow-sm hover:shadow-2xl'>
+                                    <div className='w-full h-auto  relative bg-white rounded-lg '>
                                         <img
                                             src={item.rasm}
                                             alt={item.title}
-                                            className='mx-auto w-full  h-[360px]  rounded-lg object-cover'
+                                            className='mx-auto w-full   h-[390px]  rounded-lg object-cover'
                                         />
                                         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-b-lg h-[2em] w-[85%]">
 
@@ -343,47 +352,48 @@ const HomePage = () => {
                 </div>
 
             </section>
-            <section class="py-12 bg-[#1b3154]">
-                <div class="max-w-[1240px] mx-auto px-4 py-10 rounded-xl">
-                    <div class="text-center space-y-6">
-                        <h1 class="text-3xl md:text-4xl font-semibold text-white px-4">
-                            Ready to Start Planning Your Trip to France?
-                        </h1>
-                        <p class="mx-auto max-w-3xl text-white text-lg md:text-xl leading-relaxed">
-                            Speak to a France specialist to start planning your tailor-made vacation. With so much to see and do, planning a trip to France isn't easy. French Side Travel's experts are here to help. Our travel designers have the knowledge to help you create the trip you've been longing for!
-                        </p>
-                        <div class="flex justify-center gap-4 mt-8">
-                            <a
-                                href="https://frenchsidetravel.com/customize-your-trip/"
-                                class="bg-[#f9f5f0] text-[#1b3154] px-8 py-3 rounded-full font-medium hover:bg-[#e8e0d6] transform transition-all duration-300 hover:-translate-y-1"
-                            >
-                                Inquire Today
-                            </a>
+            <section class=" bg-[#1b3154] w-full bg-gradient-to-b from-[#1b3154] from-80% to-white to-20%">
+                <div class="max-w-[1240px] mx-auto pt-4  relative">
+                    <div className="mt-[56px] mr-[46.525px] ml-[46.525px] font-sans">
+                        <div class="text-center">
+                            <h1 class="text-3xl md:text-4xl font-semibold text-white my-[26.56px]">
+                                Ready to Start Planning Your Trip to France?
+                            </h1>
+                            <p class="mx-auto max-w-3xl text-white text-lg md:text-xl leading-relaxed">
+                                Speak to a France specialist to start planning your tailor-made vacation. With so much to see and do, planning a trip to France isn't easy. French Side Travel's experts are here to help. Our travel designers have the knowledge to help you create the trip you've been longing for!
+                            </p>
+                            <div class="flex justify-center  items-center">
+                                <a
+                                    href="https://frenchsidetravel.com/customize-your-trip/"
+                                    class="bg-[#f9f5f0] w-[193.36px] h-10 text-[#1b3154]  py-2 px-[28.8px] mt-8 rounded-full text-[20px] font-sans hover:bg-[#e8e0d6] transform transition-all duration-300 hover:-translate-y-1"
+                                >
+                                    Inquire Today
+                                </a>
+                            </div>
+                        </div>
+                            
+                        <div class="mt-8 flex justify-center flex-nowrap w-full h-full gap-1">
+                            <img
+                                src="/Florence-new-travel-designer-photo.png"
+                                alt="Travel Designer Florence"
+                                class=" w-1/3 h-[310px] object-cover  rounded-full grayscale hover:grayscale-0 transition-all duration-500"
+                            />
+                            <img
+                                src="/Matt-Travel-Desinger.png"
+                                alt="Travel Designer Matt"
+                                class=" w-1/3 h-[310px] object-cover  rounded-full grayscale hover:grayscale-0 transition-all duration-500"
+                            />
+                            <img
+                                src="/Severine-Travel-Desinger.png"
+                                alt="Travel Designer Severine"
+                                class=" w-1/3 h-[310px] object-cover  rounded-full grayscale hover:grayscale-0 transition-all duration-500"
+                            />
                         </div>
                     </div>
-
-                    <div class="mt-16 flex justify-center gap-8 flex-wrap px-4">
-                        <img
-                            src="/Florence-new-travel-designer-photo.png"
-                            alt="Travel Designer Florence"
-                            class="w-48 h-48 md:w-52 md:h-52 object-cover rounded-full grayscale hover:grayscale-0 transition-all duration-500"
-                        />
-                        <img
-                            src="/Matt-Travel-Desinger.png"
-                            alt="Travel Designer Matt"
-                            class="w-48 h-48 md:w-52 md:h-52 object-cover rounded-full grayscale hover:grayscale-0 transition-all duration-500"
-                        />
-                        <img
-                            src="/Severine-Travel-Desinger.png"
-                            alt="Travel Designer Severine"
-                            class="w-48 h-48 md:w-52 md:h-52 object-cover rounded-full grayscale hover:grayscale-0 transition-all duration-500"
-                        />
-                    </div>
-
-                    <div class="text-center mt-10">
+                    <div class="text-center pb-4">
                         <a
                             href="/travel-designers"
-                            class="inline-block bg-white text-[#1b3154] px-8 py-3 rounded-full font-medium hover:bg-[#f9f5f0] transform transition-all duration-300 hover:-translate-y-1"
+                            class="inline-block  mt-6 py-2 px-[28.8px] text-white bg-[#1b3154] rounded-full font-medium"
                         >
                             Meet Our Travel Designers
                         </a>
