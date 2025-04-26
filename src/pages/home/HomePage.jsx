@@ -4,9 +4,11 @@ import { FaCheckCircle, FaChevronLeft, FaChevronRight, FaStar } from "react-icon
 import { Autoplay, Navigation } from "swiper/modules";
 import React, { useEffect, useRef, useState } from "react";
 import { BsMicMute, BsMic } from "react-icons/bs";
+import { TbAward } from "react-icons/tb";
 
 import 'swiper/css';
 import 'swiper/css/navigation';
+import { SlLocationPin } from "react-icons/sl";
 const HomePage = () => {
     const videoRef = useRef(null);
     const [isMuted, setIsMuted] = useState(true);
@@ -92,13 +94,13 @@ const HomePage = () => {
                     {/* Custom arrows */}
                     <button
                         ref={prevRef}
-                        className="absolute top-1/2 left-2 sm:left-[10px] z-10 -translate-y-1/2 text-[#1b3154] text-xl"
+                        className="absolute top-[60%] left-2 sm:left-[10px] z-10 -translate-y-1/2 text-[#1b3154] text-xl"
                     >
                         <FaChevronLeft />
                     </button>
                     <button
                         ref={nextRef}
-                        className="absolute top-1/2 right-2 sm:right-[10px] z-10 text-[#1b3154] -translate-y-1/2 text-xl"
+                        className="absolute top-[60%] right-2 sm:right-[10px] z-10 text-[#1b3154] -translate-y-1/2 text-xl"
                     >
                         <FaChevronRight />
                     </button>
@@ -179,14 +181,7 @@ const HomePage = () => {
                         {/* Card 1 */}
                         <div className="flex flex-col items-center pl-0 px-[10px]">
                             <div className="w-[214px] h-14 justify-center flex">
-
-                                <img
-                                    src="https://6e131064.delivery.rocketcdn.me/wp-content/uploads/2022/08/award-winning.png"
-                                    alt="Award Winning"
-                                    width={100}
-                                    height={100}
-                                    className=" w-[52px] h-[52px]"
-                                />
+                                <TbAward  className="w-12 h-12"/>
                             </div>
                             <h4 className="text-[18px] font-[500] leading-[1.375em] mt-[4.5px] mb-[9px] uppercase">
                                 An Award-Winning Agency
@@ -202,13 +197,14 @@ const HomePage = () => {
                         <div className="flex flex-col items-center px-[10px]">
                             <div className="w-[214px] h-14 justify-center flex">
 
-                                <img
+                                {/* <img
                                     src="https://6e131064.delivery.rocketcdn.me/wp-content/uploads/2022/08/local-icon.png"
                                     alt="Local Knowledge"
                                     width={100}
                                     height={100}
                                     className=" w-[52px] h-[52px]"
-                                />
+                                /> */}
+                                <SlLocationPin className="w-12 h-12"/>
                             </div>
                             <h4 className="text-[1.125em] font-[500] leading-[1.375em] my-[0.25em] mb-[0.5em] uppercase">Hands-on Local Knowledge</h4>
                             <p className="font-light text-[1.125em] leading-[1.375em] h-[74.25px]">Our travel designers live and work in France</p>
