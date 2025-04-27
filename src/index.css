@@ -1,6 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Mate:ital@0;1&family=Oswald:wght@200..700&display=swap');
 @import "tailwindcss";
 
+*{
+  /* margin: 0; */
+  /* padding: 0; */
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+
+}
+
 .bg-gradient-hero {
   background-image: linear-gradient(to top, #1F3653 0%, #0a1a3800 100%);
 }
