@@ -5,7 +5,7 @@ function HistoryCulture() {
 
     const [expandedIndex, setExpandedIndex] = useState(null);
     const [isSticky, setIsSticky] = useState(false);
-    const [selectLink , setSelectLink] = useState("tours");
+    const [selectLink, setSelectLink] = useState("tours");
 
 
     useEffect(() => {
@@ -116,19 +116,18 @@ function HistoryCulture() {
                 style={{
                     backgroundImage: 'url("/painting-france-paris-artist.webp")',
                     backgroundSize: 'cover',
-                    backgroundPosition: 'top',
+                    backgroundPosition: 'center 22%',
                     backgroundRepeat: 'no-repeat'
                 }}
-                className="relative h-[680px] flex flex-col items-center justify-start  text-center">
+                className="relative h-[69vh] flex flex-col items-center justify-start  text-center">
                 <div className="absolute opacity   bottom-0 left-0 w-full h-[70%] bg-gradient-hero"></div>
-                <div className='flex flex-col items-center justify-start min-h-screen mt-[235px]'>
-
+                <div className='flex flex-col items-center justify-start mt-[180px] max-w-[1240px] mx-auto'>
                     <h1 className='text-5xl font-serif text-center text-[rgba(255,255,255,0.9)] relative z-10 text-shadow'>History & Culture</h1>
-                    <h3 className='text-2xl md:text-2xl text-center text-[rgba(255,255,255,0.8)] mb-4 max-w-5xl mx-auto leading-relaxed relative z-10'> Browse our history and culture tours for inspiration or contact us straight away for a tailor-made itinerary by a local travel designer.
+                    <h3 className='px-16 mx-4 text-2xl md:text-2xl text-center text-[rgba(255,255,255,0.8)] mb-4 max-w-5xl  relative z-10'> Browse our history and culture tours for inspiration or contact us straight away for a tailor-made itinerary by a local travel designer.
                     </h3>
                     {/* <!-- callout button --> */}
-                    <div className=' p-3 w-full max-w-xs relative z-10'>
-                        <a href="" className='inline-block bg-[#e8dcba] text-[#1b3154] py-2 px-12 rounded-full  text-xl transition-colors hover:text-white hover:bg-blue-900 duration-300 cursor-pointer'
+                    <div className=' w-full max-w-xs relative z-10'>
+                        <a href="" className='inline-block font-sans bg-[#e8dcba] text-[#1b3154] py-[8px] px-[40px] rounded-full  text-xl transition-colors hover:text-white hover:bg-blue-900 duration-300 cursor-pointer'
                         >
                             Customize My Trip
                         </a>
@@ -136,9 +135,9 @@ function HistoryCulture() {
                 </div>
             </section>
             <section className="bg-[#1F3653] pt-[30px] w-full z-50 pb-16">
-                <div className={`sticky top-[70px] z-50 ${isSticky ? "": "max-w-[1200px] w-full mx-auto" } `} >
-                    <div className='w-full bg-white'>
-                        <nav className='flex justify-center gap-10 py-4 text-[#044f70] shadow-md'>
+                <div className={`sticky top-[70px] z-50 ${isSticky ? "" : "max-w-[1200px] w-full mx-auto"} `} >
+                    <div className='w-full font-sans bg-white'>
+                        <nav className='flex  justify-center gap-12 py-3 text-[#044f70]/80 shadow-md'>
                             <Link onClick={() => setSelectLink("tours")} to="tours" smooth={true} duraction={500} offset={-80} className={`${selectLink === "tours" && isSticky ? "underline" : ""} cursor-pointer hover:underline`}>
                                 TOURS
                             </Link>
@@ -155,7 +154,7 @@ function HistoryCulture() {
                     </div>
                 </div>
                 <div className='max-w-[1240px] px-[20px] mx-auto'>
-                    <div id='tours' className='pt-[56px]'>
+                    <div id='tours' className='pt-[30px]'>
                         <h2 className='flex justify-center text-3xl truncate text-[#ffffff] mb-8 font-bold'>Our Favorite History & Culture Tours</h2>
                         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 ">
                             {images?.map((image, index) => (

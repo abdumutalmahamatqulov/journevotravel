@@ -19,7 +19,7 @@ function AboutUs() {
             {/* page */}
             <section className="bg-white w-full mx-auto ">
                 <div className='justify-center flex max-w-[720px] mx-auto items-center'>
-                    <div>
+                    <div className='w-full px-2 py-8'>
                         <h3
                             style={{
                                 fontFamily: 'Montserrat, sans-serif !important',

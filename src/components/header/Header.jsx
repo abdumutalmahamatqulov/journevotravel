@@ -19,7 +19,7 @@ const destinations = [
 const travelTypes = [
   ['Family-Friendly Travel', '/travel/family'],
   ['Group Travel', '/travel/group'],
-  ['History & Culture', '/travel/history'],
+  ['History & Culture', 'travel-ideas/history-culture'],
   ['Honeymoons & Romance', '/travel/romance'],
   ['Self-Drive Trips & Tours', '/travel/self-drive'],
   ['Skiing & Adventure', '/travel/adventure'],
