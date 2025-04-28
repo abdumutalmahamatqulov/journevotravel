@@ -1,13 +1,22 @@
-import React from 'react'
+import React, { useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { buttonText, reviewers } from '../../../../data/detail'
 import { SwiperSlide, Swiper } from 'swiper/react'
-import { FaCheckCircle, FaStar } from 'react-icons/fa'
+import { FaCheckCircle, FaChevronLeft, FaChevronRight, FaStar } from 'react-icons/fa'
 import { Autoplay, Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 
 function FamilyTripFrance() {
+    const prevRef = useRef(null);
+    const nextRef = useRef(null);
+    const [expanded, setExpanded] = useState({});
+    const toggleExpand = (index) => {
+        setExpanded((prev) => ({
+            ...prev,
+            [index]: !prev[index],
+        }));
+    };
     const images = [
         {
             rasm: "/Monaco-Feature-494x280.webp",
@@ -36,23 +45,23 @@ function FamilyTripFrance() {
             rasm: "/versailles-palace-france-paris-shutterstock-494x280.jpg",
             title: 'Skiing & Adventure',
             url: "skiing-adventure"
-        },{
+        }, {
             rasm: "/family-people-beach-shutterstock.jpg",
             title: 'Wellness & Relaxation',
             url: "wellness-relaxation-france"
         }, {
-            rasm:"/luberon-gordes-provence-shutterstock-494x280.jpg",
-            title:  'Wellness & Relaxation',
+            rasm: "/luberon-gordes-provence-shutterstock-494x280.jpg",
+            title: 'Wellness & Relaxation',
             url: "wine-food-tours-2"
         }
-       ,{
-        rasm:  "/chamonix-alpes-france-shutterstock-494x280.jpg",
-        title:       'Wine & Food',
-        url: "wine-food-tours-2"
-       }
-       
-        
-      
+        , {
+            rasm: "/chamonix-alpes-france-shutterstock-494x280.jpg",
+            title: 'Wine & Food',
+            url: "wine-food-tours-2"
+        }
+
+
+
 
     ]
     return (
@@ -86,14 +95,14 @@ function FamilyTripFrance() {
                 <div className='text-white max-w-[1240px] mx-auto px-5'>
 
                     <h3 className='text-2xl justify-center flex mb-4'>France is a wonderful kid-friendly destination. </h3>
-                    <div className='mb-8 gap-10 justify-start flex'>
-                        <p className='line-clamp-7 max-w-full text-justify'>Traveling to France with young children or teens? Let French Side Travel design a personalized itinerary that the whole family will cherish. France offers a wealth of exciting outdoor adventures, from scenic bike rides and invigorating hikes to sailing and kayaking on picturesque rivers. Its rich history is showcased in iconic sites like the battlefields and the majestic medieval fortress of Carcassonne. Some of our favorite family activities include kayaking beneath the stunning Pont du Gard Roman
+                    <div className='mb-8 gap-10 px-12 justify-start flex'>
+                        <p className='md:line-clamp-7 max-w-full text-justify'>Traveling to France with young children or teens? Let French Side Travel design a personalized itinerary that the whole family will cherish. France offers a wealth of exciting outdoor adventures, from scenic bike rides and invigorating hikes to sailing and kayaking on picturesque rivers. Its rich history is showcased in iconic sites like the battlefields and the majestic medieval fortress of Carcassonne. Some of our favorite family activities include kayaking beneath the stunning Pont du Gard Roman
                         </p>
-                        <p className='line-clamp-7 max-w-full text-justify'> aqueduct, exploring the rugged beauty of Corsica and Dordogne, and delving into France’s ancient prehistoric caves. Beyond Disneyland, dynamic Paris provides endless opportunities for families, with many museums featuring child-friendly exhibits, such as the Centre Pompidou’s Galerie des Enfants and Studio 13/16. After an action-packed itinerary, unwind with a few restful days on the pristine Mediterranean or Atlantic beaches, creating memories that will last a lifetime.
+                        <p className='md:line-clamp-7 max-w-full text-justify'> aqueduct, exploring the rugged beauty of Corsica and Dordogne, and delving into France’s ancient prehistoric caves. Beyond Disneyland, dynamic Paris provides endless opportunities for families, with many museums featuring child-friendly exhibits, such as the Centre Pompidou’s Galerie des Enfants and Studio 13/16. After an action-packed itinerary, unwind with a few restful days on the pristine Mediterranean or Atlantic beaches, creating memories that will last a lifetime.
                         </p>
                     </div>
                 </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-[1240px] px-[20px] mx-auto">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-14 max-w-[1240px] px-[70px] mx-auto">
                     {images.map((item, index) => (
                         <div
                             key={index}
@@ -102,7 +111,7 @@ function FamilyTripFrance() {
                             <img
                                 src={item.rasm}
                                 alt={`travel-${index}`}
-                                className="w-full h-64 object-cover"
+                                className="w-full h-[200px] object-cover"
                             />
 
                             <Link
@@ -118,43 +127,76 @@ function FamilyTripFrance() {
                 </div>
             </section>
             <section className='bg-white pt-12 w-full relative'>
-                <div>
-                    <h2 className='items-center justify-center flex text-[#1b3154] text-2xl font-bold'>
-                        What Our Clients Are Saying
-                    </h2>
-                </div>
-                <div className='w-full max-w-3xl relative mx-auto'>
-                    <Swiper
-                        modules={[Navigation, Autoplay]}
-                        navigation={true}
-                        autoplay={{ delay: 5000, disableOnInteraction: false }}
-                        spaceBetween={30}
-                        slidesPerView={1}
-                        loop={true}
-                    >
-                        {reviewers?.map((item, index) => (
-                            <SwiperSlide key={index}>
-                                <div className='text-center px-6 py-8'>
-                                    <h3 className='text-lg font-semibold text-[#1b3154]'>{item.name}</h3>
-                                    <p className='text-sm text-gray-500 mb-2'>{item.data}</p>
-                                    <div className='flex justify-center items-center mb-3'>
-                                        {[...Array(5)].map((_, i) => (
-                                            <FaStar key={i} className='text-[#c2ac57] mr-1' />
-                                        ))}
-                                        <FaCheckCircle className='text-blue-600 ml-2' />
+                <div className='max-w-[1240px] mx-auto px-4'>
+                    <div>
+                        <h2 className='items-center justify-center flex text-[#1b3154] text-2xl font-sans'>
+                            What Our Clients Are Saying
+                        </h2>
+                    </div>
+                    <div className='w-full max-w-4xl relative mx-auto pb-4'>
+                        {/* Custom arrows */}
+                        <button
+                            ref={prevRef}
+                            className="absolute top-1/2 left-2 sm:left-[10px] z-10 text-[#c2ac57] -translate-y-1/2 text-2xl"
+                        >
+                            <FaChevronLeft />
+                        </button>
+                        <button
+                            ref={nextRef}
+                            className="absolute top-1/2 right-2 sm:right-[10px] z-10 text-[#c2ac57] -translate-y-1/2 text-2xl"
+                        >
+                            <FaChevronRight />
+                        </button>
+                        <Swiper
+                            modules={[Navigation, Autoplay]}
+                            autoplay={{ delay: 5000, disableOnInteraction: false }}
+                            spaceBetween={30}
+                            slidesPerView={1}
+                            loop={true}
+                            navigation={{
+                                prevEl: prevRef.current,
+                                nextEl: nextRef.current,
+                            }}
+                            onBeforeInit={(swiper) => {
+                                swiper.params.navigation.prevEl = prevRef.current;
+                                swiper.params.navigation.nextEl = nextRef.current;
+                            }}
+                        >
+                            {reviewers?.map((item, index) => (
+                                <SwiperSlide key={index}>
+                                    <div className='text-center p-5'>
+                                        <h3 className='text-lg font-semibold text-[#1b3154]'>{item.name}</h3>
+                                        <p className='text-sm text-gray-500 mb-2'>{item.data}</p>
+                                        <div className='flex justify-center items-center mb-3'>
+                                            {[...Array(5)].map((_, i) => (
+                                                <FaStar key={i} className='text-[#c2ac57] mr-1' />
+                                            ))}
+                                            <FaCheckCircle className='text-blue-600 ml-2' />
+                                        </div>
+                                        <p
+                                            className={`text-[15px] leading-relaxed text-[#1b3154] max-w-xl mx-auto
+                                            ${expanded[index] ? '' : 'line-clamp-3'}`}
+                                        >
+                                            {item.review}
+                                        </p>
+                                        {item.review && item.review.length > 155 && (
+                                            <button
+                                                onClick={() => toggleExpand(index)}
+                                                className='font-sans mt-2 text-[13.5px] text-[#1b3150] hover:text-[#1b3150] transition'
+                                            >
+                                                {expanded[index] ? 'Read less' : 'Read more'}
+                                            </button>
+                                        )}
                                     </div>
-                                    <p className='text-[15px] leading-relaxed text-[#1b3154] max-w-xl mx-auto'>
-                                        {item.review}
-                                    </p>
-                                </div>
-                            </SwiperSlide>
+                                </SwiperSlide>
 
-                        )
-                        )}
-                    </Swiper>
-                </div>
-                <div className='text-center text-sm'>
-                    <strong>Google</strong> rating score: <span className='font-bold'>4.9</span> of 5, based on <span className='font-bold underline cursor-pointer'><a href="https://www.google.com/search?hl=en-UZ&gl=uz&q=French+Side+Travel,+49+Cr+Mirabeau,+13100+Aix-en-Provence,+France&ludocid=532799359941301942&lsig=AB86z5Upvh70KTA4BtNjP-rQs1p5#lrd=0x12c98da84737b347:0x764e231e9db56b6,1">162 reviews</a></span>
+                            )
+                            )}
+                        </Swiper>
+                    </div>
+                    <div className='text-center text-sm pb-4'>
+                        <strong>Google</strong> rating score: <span className='font-bold'>4.9</span> of 5, based on <span className='font-bold underline cursor-pointer'><a href="https://www.google.com/search?hl=en-UZ&gl=uz&q=French+Side+Travel,+49+Cr+Mirabeau,+13100+Aix-en-Provence,+France&ludocid=532799359941301942&lsig=AB86z5Upvh70KTA4BtNjP-rQs1p5#lrd=0x12c98da84737b347:0x764e231e9db56b6,1">162 reviews</a></span>
+                    </div>
                 </div>
             </section>
         </main>

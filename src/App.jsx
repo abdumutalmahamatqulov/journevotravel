@@ -63,10 +63,10 @@ function App() {
       <ScrollToTop/>
         <Routes>
           <Route element={<Layout />}>
-            <Route index element={<HomePage />} />
+            <Route index element={<HomePage />} />      //+
             <Route path="travels" element={<FrenchsidetravelPage />} />
-            <Route path='travel-ideas' element={<TravelIdeas />} />
-            <Route path='travel-ideas/family-trip-france' element={<FamilyTripFrance />} />
+            <Route path='travel-ideas' element={<TravelIdeas />} />   //+
+            <Route path='travel-ideas/family-trip-france' element={<FamilyTripFrance />} />   //+
             <Route path='tours/a-family-trip-to-monaco' element={<FamilyTripToMonaco/>}/>
             <Route path='travel-ideas/group-travel' element={<GroupTravel />} />
             <Route path='travel-ideas/history-culture' element={<HistoryCulture />} />
