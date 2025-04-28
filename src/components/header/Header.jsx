@@ -43,9 +43,9 @@ const generateMenu = (items) =>
         {items.map(([label, path]) => (
           <Menu.Item
             key={path}
-            className="text-white text-[15px] py-2 transition-colors hover:bg-transparent hover:!text-[#c2ac57] border-0"
+            className="text-white text-[15px]  py-2 transition-colors hover:bg-transparent hover:!text-[#c2ac57] border-0"
           >
-            <Link to={path} className="text-inherit block" aria-label={`Navigate to ${label}`}>
+            <Link to={path} className="text-inherit block " aria-label={`Navigate to ${label}`}>
               {label}
             </Link>
           </Menu.Item>
@@ -133,25 +133,25 @@ const Navbar = () => {
   );
 
   return (
-    <header className="sticky top-0 z-[1000] w-full bg-white px-4 lg:px-[30px] h-[70px] flex items-center shadow-sm">
-      <div className="w-full max-w-[1250px] mx-auto flex justify-between items-center">
+    <header className="sticky top-0 z-[1000] w-full bg-white px-4 lg:px-[20px] lg:pt-6 h-[90px] flex items-start shadow-sm">
+      <div className="w-full max-w-[1250px] mx-auto flex justify-start lg:gap-10 items-center">
         {/* Logo */}
         <Link to="/" onClick={closeMobileMenu}>
           <img 
             src="/frenchside-logo.svg" 
             alt="French Side Travel Logo" 
-            className="h-8 lg:h-10" 
+            className="h-10" 
           />
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden lg:flex items-center gap-3 xl:gap-[30px]">
+        <nav className="hidden lg:flex items-center">
           <Dropdown
             overlay={generateMenu(destinations)}
             trigger={['hover']}
             onOpenChange={(visible) => setActiveDropdown(visible ? 'destinations' : null)}
             overlayClassName="dropdown-overlay"
-            className='py-[5px] px-[5px]'
+            className='py-[8px] pr-6 pl-2'
           >
             {renderNavItem('Destinations', '/destinations', 'destinations')}
           </Dropdown>
@@ -160,7 +160,7 @@ const Navbar = () => {
             overlay={generateMenu(travelTypes)}
             trigger={['hover']}
             onOpenChange={(visible) => setActiveDropdown(visible ? 'travel-types' : null)}
-            className='py-[5px] px-[5px]'
+            className='py-[8px] pr-6 pl-2'
             overlayClassName="dropdown-overlay"
           >
             {renderNavItem('Travel Types', '/travel-ideas', 'travel-types')}
@@ -170,7 +170,7 @@ const Navbar = () => {
             overlay={generateMenu(aboutUs)}
             trigger={['hover']}
             onOpenChange={(visible) => setActiveDropdown(visible ? 'about' : null)}
-            className='py-[5px] px-[5px]'
+            className='py-[8px] pr-6 pl-2'
             overlayClassName="dropdown-overlay"
           >
             {renderNavItem('About Us', '/about', 'about')}
@@ -178,7 +178,7 @@ const Navbar = () => {
 
           <Link 
             to="/blog/" 
-            className="text-[#1B3154] px-2 hover:text-[#c2ac57] transition-colors whitespace-nowrap"
+            className="text-[#1B3154] p-2 hover:text-[#c2ac57] transition-colors whitespace-nowrap"
             onClick={closeMobileMenu}
           >
             Travel Inspiration
@@ -186,14 +186,14 @@ const Navbar = () => {
 
           {/* Phone Section with Modal */}
           <div 
-            className="relative flex items-center gap-2 ml-2"
+            className="relative flex items-center pl-4"
             onMouseEnter={() => setModalVisible(true)}
             onMouseLeave={() => setModalVisible(false)}
           >
             <img src="/call-button-art.svg" alt="Phone Icon" />
             <a 
               href={`tel:${CONTACT_PHONE.replace(/\D/g, '')}`} 
-              className="font-bold text-[#1B3154] whitespace-nowrap text-sm xl:text-base hover:text-[#c2ac57]"
+              className="p-2 font-bold text-[#1B3154] whitespace-nowrap text-sm xl:text-base hover:text-[#c2ac57]"
             >
               {CONTACT_PHONE}
             </a>
@@ -224,7 +224,7 @@ const Navbar = () => {
 
           <Link 
             to="/customize-your-trip" 
-            className="bg-[#1B3154] py-[5px] text-white font-medium px-[5px] rounded-[16px] xl:px-4 xl:py-2 hover:text-[#c2ac57] transition-colors whitespace-nowrap text-sm xl:text-base"
+            className="bg-[#1B3154] ml-5 py-2 px-7 text-white font-sans rounded-[16px] xl:px-4 xl:py-2 hover:text-[#c2ac57] transition-colors whitespace-nowrap text-[16px] xl:text-base"
           >
             Customize Your Trip
           </Link>
