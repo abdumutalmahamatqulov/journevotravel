@@ -72,7 +72,7 @@ function App() {
             <Route path='travel-ideas/history-culture' element={<HistoryCulture />} />  //+  
             <Route path='about' element={<AboutUs/>}/>  //+
             <Route path='faq' element={<FAQ />} />  //+
-            <Route path='contact' element={<Contact />} />
+            <Route path='contact' element={<Contact />} />  //+
           </Route>
         </Routes>
       </BrowserRouter>
