@@ -110,12 +110,7 @@ export const languages = [
     shortLabel: "RU",
     flag: "https://flagcdn.com/w40/ru.png",
   },
-  {
-    code: "fr",
-    name: "Français",
-    shortLabel: "FR",
-    flag: "https://flagcdn.com/w40/fr.png",
-  },
+
 ];
 
 export const itineraries = [
