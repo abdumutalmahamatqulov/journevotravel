@@ -71,7 +71,7 @@ function App() {
             <Route path='travel-ideas/group-travel' element={<GroupTravel />} />   ////---+
             <Route path='travel-ideas/history-culture' element={<HistoryCulture />} />  //+  
             <Route path='about' element={<AboutUs/>}/>  //+
-            <Route path='faq' element={<FAQ />} />
+            <Route path='faq' element={<FAQ />} />  //+
             <Route path='contact' element={<Contact />} />
           </Route>
         </Routes>

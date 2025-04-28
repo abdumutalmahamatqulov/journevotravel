@@ -18,7 +18,7 @@ function FAQ() {
             </section>
             <section className="bg-white w-full mx-auto ">
                 <div className='justify-center flex max-w-[720px] mx-auto items-center'>
-                    <div>
+                    <div className='w-full px-6'>
                         <h2
                             style={{
                                 fontFamily: 'Mate,serif !important',
@@ -26,9 +26,10 @@ function FAQ() {
                                 fontSize: '20px',
                                 fontWeight: 'semibold',
                                 justifyContent: 'center',
-                                alignItems: 'start',
+                                alignItems: 'center',
                                 width: '100%',
-                                margin: '24px 173.333px',
+                                marginTop: '24px',
+                                marginBottom: '24px',
                             }}
                         >
                             <strong>
@@ -391,11 +392,11 @@ function FAQ() {
 
             </section>
 
-            <section className="bg-[#1b3154] text-white relative overflow-hidden">
+            <section className="bg-[#1f3653] text-white relative overflow-hidden">
                 <div className='absolute top-0 left-1/2 transform -translate-x-1/2 bg-white w-[120%] h-[100px] rounded-b-[50%] z-10'></div>
                 <div style={{
                     maxWidth: '1200px',
-                    fontFamily: 'Montserrat, sans-serif !important',
+                    fontFamily: 'Mate,serif',
                     margin: '0 4px',
                     padding: '40px',
                     paddingTop: '100px',
@@ -445,7 +446,7 @@ function FAQ() {
                                 An Award-Winning Agency
                             </h4>
 
-                            <p className="font-light text-[1.125em] leading-[1.375em] h-[74.25px]">
+                            <p className="font-sans text-[15px] leading-[1.375em] h-[74.25px]">
                                 Recognized as a Top Travel Advisor for France
                             </p>
 
@@ -473,7 +474,7 @@ function FAQ() {
                                 />
                             </div>
                             <h4 className="text-[1.125em] font-[500] leading-[1.375em] my-[0.25em] mb-[0.5em] uppercase">Hands-on Local Knowledge</h4>
-                            <p className="font-light text-[1.125em] leading-[1.375em] h-[74.25px]">Our travel designers live and work in France</p>
+                            <p className="font-sans text-[15px] leading-[1.375em] h-[74.25px]">Our travel designers live and work in France</p>
                         </div>
 
                         {/* Card 3 */}
@@ -499,7 +500,7 @@ function FAQ() {
                                 />
                             </div>
                             <h4 className="text-[1.125em] font-[500] leading-[1.375em] my-[0.25em] mb-[0.5em] uppercase">Immersion in the Real France</h4>
-                            <p className="font-light text-[1.125em] leading-[1.375em] h-[74.25px]">
+                            <p className="font-sans text-[15px] leading-[1.375em] h-[74.25px]">
                                 Enjoy unique and authentic experience throughout the whole country
                             </p>
                         </div>
@@ -527,7 +528,7 @@ function FAQ() {
                                 />
                             </div>
                             <h4 className="text-[1.125em] font-[500] leading-[1.375em] my-[0.25em] mb-[0.5em] uppercase">24/7 Support &amp; Assistance</h4>
-                            <p className="font-light text-[1.125em] leading-[1.375em] h-[74.25px]">
+                            <p className="font-sans text-[15px] leading-[1.375em] h-[74.25px]">
                                 We are there for you with a 24/7 English-spoken emergency line
                             </p>
                         </div>
@@ -554,7 +555,7 @@ function FAQ() {
                                 />
                             </div>
                             <h4 className="text-[1.125em] font-[500] leading-[1.375em] my-[0.25em] mb-[0.5em] uppercase">Travel With Peace of Mind</h4>
-                            <p className="font-light text-[1.125em] leading-[1.375em] h-[74.25px]">
+                            <p className="font-sans text-[15px] leading-[1.375em] h-[74.25px]">
                                 Our team puts your safety and comfort first
                             </p>
                         </div>
