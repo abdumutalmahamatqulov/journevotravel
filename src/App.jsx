@@ -40,8 +40,8 @@ function App() {
 
   return (
     <Provider store={store}>
-      <div className="fixed z-10 left-6 bottom-6 bg-white/90 p-2 rounded shadow">
-        <div className="relative inline-block text-left">
+      <div className="fixed z-10 left-6 bottom-6 bg-white/90 p-2 rounded shadow " ref={dropdownRef}>
+        <div className="relative inline-block text-left w-28">
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="flex items-center gap-2 cursor-pointer w-full"
@@ -58,7 +58,7 @@ function App() {
               </svg>
             </button>
             {isOpen && (
-              <ul className="absolute bottom-full mb-2 bg-white border rounded shadow w-40">
+              <ul className="absolute bottom-full left-0 mb-2 bg-white border rounded shadow min-w-full">
                 {languages.map((lang) => (
                   <li
                     key={lang.code}
