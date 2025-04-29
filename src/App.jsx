@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Layout from './components/layout/Layout';
 import HomePage from './pages/home/HomePage';
@@ -19,19 +19,33 @@ import ScrollToTop from './components/ScrollToTop';
 import FamilyTripToMonaco from './components/traveltypes/tours/FamilyTripToMonaco';
 function App() {
   const [selectedLang, setSelectedLang] = useState("en");
+  const [isOpen, setIsOpen] = useState(false);
+  const dropdownRef = useRef();
 
   const current = languages.find((lang) => lang.code === selectedLang);
 
   const handleChange = (code) => {
     setSelectedLang(code);
+    setIsOpen(false);
   };
-  
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setIsOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
   return (
     <Provider store={store}>
       <div className="fixed z-10 left-6 bottom-6 bg-white/90 p-2 rounded shadow">
         <div className="relative inline-block text-left">
-          <details className="group relative w-20">
-            <summary className="flex items-center gap-2 cursor-pointer">
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="flex items-center gap-2 cursor-pointer w-full"
+            >
               <img src={current?.flag} alt={current?.code} className="w-5 h-5" />
               <span>{current.shortLabel}</span>
               <svg
@@ -42,36 +56,36 @@ function App() {
               >
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
               </svg>
-            </summary>
-
-            <ul className="absolute bottom-full mb-2 bg-white border rounded shadow w-40">
-              {languages.map((lang) => (
-                <li
-                  key={lang.code}
-                  className="px-3 py-2 hover:bg-gray-100 flex items-center gap-2 cursor-pointer"
-                  onClick={() => handleChange(lang.code)}
-                >
-                  <img src={lang.flag} alt={lang.code} className="w-5 h-5" />
-                  <span>{lang.name}</span>
-                </li>
-              ))}
-            </ul>
-          </details>
+            </button>
+            {isOpen && (
+              <ul className="absolute bottom-full mb-2 bg-white border rounded shadow w-40">
+                {languages.map((lang) => (
+                  <li
+                    key={lang.code}
+                    className="px-3 py-2 hover:bg-gray-100 flex items-center gap-2 cursor-pointer"
+                    onClick={() => handleChange(lang.code)}
+                  >
+                    <img src={lang.flag} alt={lang.code} className="w-5 h-5" />
+                    <span>{lang.name}</span>
+                  </li>
+                ))}
+              </ul>
+            )}
         </div>
       </div>
       <BrowserRouter>
-      <ScrollToTop/>
+        <ScrollToTop />
         <Routes>
           <Route element={<Layout />}>
-            <Route index element={<HomePage />} />      
+            <Route index element={<HomePage />} />
             <Route path="travels" element={<FrenchsidetravelPage />} />
-            <Route path='travel-ideas' element={<TravelIdeas />} />   
-            <Route path='travel-ideas/family-trip-france' element={<FamilyTripFrance />} />   
-            <Route path='tours/a-family-trip-to-monaco' element={<FamilyTripToMonaco/>}/>   
-            <Route path='travel-ideas/group-travel' element={<GroupTravel />} /> 
-            <Route path='travel-ideas/history-culture' element={<HistoryCulture />} />    
-            <Route path='about' element={<AboutUs/>}/>  
-            <Route path='faq' element={<FAQ />} /> 
+            <Route path='travel-ideas' element={<TravelIdeas />} />
+            <Route path='travel-ideas/family-trip-france' element={<FamilyTripFrance />} />
+            <Route path='tours/a-family-trip-to-monaco' element={<FamilyTripToMonaco />} />
+            <Route path='travel-ideas/group-travel' element={<GroupTravel />} />
+            <Route path='travel-ideas/history-culture' element={<HistoryCulture />} />
+            <Route path='about' element={<AboutUs />} />
+            <Route path='faq' element={<FAQ />} />
             <Route path='contact' element={<Contact />} />
           </Route>
         </Routes>

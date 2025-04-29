@@ -181,7 +181,14 @@ const HomePage = () => {
                         {/* Card 1 */}
                         <div className="flex flex-col items-center pl-0 px-[10px]">
                             <div className="w-[214px] h-14 justify-center flex">
-                                <TbAward  className="w-12 h-12"/>
+
+                                <img
+                                    src="award-winning.png"
+                                    alt="Local Knowledge"
+                                    width={100}
+                                    height={100}
+                                    className=" w-[52px] h-[52px]"
+                                />
                             </div>
                             <h4 className="text-[18px] font-[500] leading-[1.375em] mt-[4.5px] mb-[9px] uppercase">
                                 An Award-Winning Agency
@@ -197,14 +204,13 @@ const HomePage = () => {
                         <div className="flex flex-col items-center px-[10px]">
                             <div className="w-[214px] h-14 justify-center flex">
 
-                                {/* <img
-                                    src="https://6e131064.delivery.rocketcdn.me/wp-content/uploads/2022/08/local-icon.png"
+                                <img
+                                    src="local-icon.png"
                                     alt="Local Knowledge"
                                     width={100}
                                     height={100}
                                     className=" w-[52px] h-[52px]"
-                                /> */}
-                                <SlLocationPin className="w-12 h-12"/>
+                                />
                             </div>
                             <h4 className="text-[1.125em] font-[500] leading-[1.375em] my-[0.25em] mb-[0.5em] uppercase">Hands-on Local Knowledge</h4>
                             <p className="font-light text-[1.125em] leading-[1.375em] h-[74.25px]">Our travel designers live and work in France</p>
@@ -215,7 +221,7 @@ const HomePage = () => {
                             <div className="w-[214px] h-14 justify-center flex">
 
                                 <img
-                                    src="https://6e131064.delivery.rocketcdn.me/wp-content/uploads/2022/08/wine-real-france-icon.png"
+                                    src="wine-real-france-icon.png"
                                     alt="Real France"
                                     width={100}
                                     height={100}
@@ -233,7 +239,7 @@ const HomePage = () => {
                             <div className="w-[214px] h-14 justify-center flex">
 
                                 <img
-                                    src="https://6e131064.delivery.rocketcdn.me/wp-content/uploads/2022/08/24-7-support-assistance-icon.png"
+                                    src="24-7-support-assistance-icon.png"
                                     alt="24/7 Support"
                                     width={100}
                                     height={100}
@@ -251,7 +257,7 @@ const HomePage = () => {
                             <div className="w-[214px] h-14 justify-center flex">
 
                                 <img
-                                    src="https://6e131064.delivery.rocketcdn.me/wp-content/uploads/2022/08/peace-of-mind-icon.png"
+                                    src="peace-of-mind-icon.png"
                                     alt="Peace of Mind"
                                     width={100}
                                     height={100}
@@ -271,20 +277,19 @@ const HomePage = () => {
             <section className="bg-white pt-[3em] pb-[3em] h-[607.5px] w-full">
                 <div className="max-w-[1240px] p-5 mx-auto h-full">
                     <div className="flex justify-center w-full">
-
                         <h2 className="text-[#1b3154] font-[500]  my-[26.56px] text-[32px]">Our Best Tour Selection</h2>
                     </div>
                     <div className="relative px-10 overflow-visible">
                         {/* Custom arrows */}
                         <button
                             ref={prevRef}
-                            className="absolute  top-1/2 left-2 sm:left-[10px] z-10 text-[#1b3154] -translate-y-1/2 text-2xl"
+                            className="absolute  top-1/2 left-2 sm:left-0 z-10 text-[#1b3154] -translate-y-1/2 text-2xl"
                         >
                             <FaChevronLeft />
                         </button>
                         <button
                             ref={nextRef}
-                            className="absolute top-1/2  right-2 sm:right-[10px] z-10 text-[#1b3154] text-2xl -translate-y-1/2"
+                            className="absolute top-1/2  right-2 sm:right-0 z-10 text-[#1b3154] text-2xl -translate-y-1/2"
                         >
                             <FaChevronRight />
                         </button>
@@ -348,6 +353,7 @@ const HomePage = () => {
                 </div>
 
             </section>
+            {/* Ready to Start Planning Your Trip to France */}
             <section class=" bg-[#1b3154] w-full bg-gradient-to-b from-[#1b3154] from-80% to-white to-20%">
                 <div class="max-w-[1240px] mx-auto pt-4  relative">
                     <div className="mt-[56px] mr-[46.525px] ml-[46.525px] font-sans">
@@ -361,13 +367,13 @@ const HomePage = () => {
                             <div class="flex justify-center  items-center">
                                 <a
                                     href="https://frenchsidetravel.com/customize-your-trip/"
-                                    class="bg-[#f9f5f0] w-[193.36px] h-10 text-[#1b3154]  py-2 px-[28.8px] mt-8 rounded-full text-[20px] font-sans hover:bg-[#e8e0d6] transform transition-all duration-300 hover:-translate-y-1"
+                                    class="bg-[#f9f5f0] w-[193.36px] h-10 text-[#1b3154]  py-2 px-[28.8px] mt-8 rounded-full text-[20px] font-sans hover:bg-[#e8e0d6] transform transition-all duration-300 hover:-translate-y-1 text-center flex justify-center items-center"
                                 >
                                     Inquire Today
                                 </a>
                             </div>
                         </div>
-                            
+
                         <div class="mt-8 flex justify-center flex-nowrap w-full h-full gap-1">
                             <img
                                 src="/Florence-new-travel-designer-photo.png"
@@ -386,7 +392,7 @@ const HomePage = () => {
                             />
                         </div>
                     </div>
-                    <div class="text-center pb-4">
+                    <div class="text-center pb-8">
                         <a
                             href="/travel-designers"
                             class="inline-block  mt-6 py-2 px-[28.8px] text-white bg-[#1b3154] rounded-full font-medium"
